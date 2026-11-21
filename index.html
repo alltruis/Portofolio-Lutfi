@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Selasar Lutfi — Muhammad Lutfi Nanang Setiawan</title>
+<meta name="description" content="Portofolio Muhammad Lutfi Nanang Setiawan: Media Officer, copywriter, dan jurnalis. Karya jurnalistik, riset, esai, dan opini tentang pendidikan, kebebasan beragama, dan lingkungan pesisir.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23000'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-weight='700' font-size='20' text-anchor='middle' fill='%23F6E10C'%3EL%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #000;
+    --fg: #fff;
+    --mut: #9a9a9a;
+    --line: rgba(255, 255, 255, .13);
+    --kuning: #F6E10C;
+    --sans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --ease: cubic-bezier(.2, .7, .2, 1);
+    --nav: 80px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: var(--nav); -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  html.kunci { overflow: hidden; }
+  a { color: inherit; }
+  button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: inherit; }
+  img { display: block; max-width: 100%; }
+  :focus-visible { outline: 2px solid var(--kuning); outline-offset: 3px; }
+  [hidden] { display: none !important; }
+  .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+  .wrap { width: 100%; max-width: 1200px; margin: 0 auto; }
+  @media (max-width: 1240px) { .wrap { padding-left: 20px; padding-right: 20px; } }
+
+  /* Garis grid vertikal: 8 kolom, memudar ke bawah */
+  .garis { position: relative; }
+  .garis::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image: linear-gradient(to right, var(--line) 1px, transparent 1px);
+    background-size: 12.5% 100%;
+    border-right: 1px solid var(--line);
+    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent);
+    mask-image: linear-gradient(to bottom, #000 55%, transparent);
+  }
+  .garis > * { position: relative; }
+  @media (max-width: 700px) { .garis::before { background-size: 25% 100%; } }
+
+  .label {
+    display: flex; align-items: center; gap: 14px;
+    font-family: var(--mono); font-size: .8rem; color: var(--mut);
+    margin: 0 0 28px;
+  }
+  .label::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+  /* ---------- Navigasi ---------- */
+  .nav {
+    position: fixed; inset: 0 0 auto 0; z-index: 40; height: var(--nav);
+    background: rgba(0, 0, 0, .55);
+    -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  }
+  .nav .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; position: relative; }
+  .nav .wrap::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--line); }
+  @media (max-width: 1240px) { .nav .wrap::after { left: 20px; right: 20px; } }
+  .nav .logo { font-size: 1.125rem; text-decoration: none; letter-spacing: -.01em; }
+  .nav ul { display: flex; gap: 28px; margin: 0; padding: 0; list-style: none; }
+  .nav ul a, .nav ul button { text-decoration: none; font-size: .95rem; transition: color .2s; }
+  .nav ul a:hover, .nav ul button:hover { color: var(--kuning); }
+  @media (max-width: 560px) { .nav ul { gap: 16px; } .nav ul button { font-size: .85rem; } .nav .logo { font-size: 1rem; } }
+
+  /* ---------- Hero ---------- */
+  .hero .wrap { padding-top: calc(var(--nav) + 90px); padding-bottom: 130px; }
+  .hero h1 {
+    margin: 0; padding-left: 40px;
+    font-weight: 500;
+    font-size: clamp(2rem, 6.6vw, 6rem);
+    line-height: 1.3;
+    letter-spacing: -.035em;
+  }
+  @media (max-width: 700px) { .hero h1 { padding-left: 0; } .hero .wrap { padding-top: calc(var(--nav) + 56px); padding-bottom: 80px; } }
+  .hero .nama { display: block; }
+  .peran { display: block; position: relative; height: 1.4em; overflow: hidden; }
+  .peran-item {
+    position: absolute; left: 0; top: 0; white-space: nowrap;
+    transform: translateY(110%);
+    transition: transform .65s cubic-bezier(.7, 0, .2, 1);
+  }
+  .peran-item.aktif { transform: translateY(0); }
+  .peran-item.keluar { transform: translateY(-110%); }
+  .penanda {
+    position: absolute; right: -36px; top: 300px; width: 72px; height: 24px;
+    pointer-events: none;
+  }
+  .penanda::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--line); }
+  .penanda::after {
+    content: ""; position: absolute; left: 50%; top: 0; width: 24px; height: 24px; margin-left: -12px;
+    border: 1px solid rgba(255, 255, 255, .35); border-radius: 50%;
+  }
+  @media (max-width: 1360px) { .penanda { display: none; } }
+
+  /* ---------- Karya unggulan (kartu bertumpuk) ---------- */
+  .karya { padding-bottom: 40px; }
+  .proyek {
+    position: sticky; top: calc(var(--nav) + 16px + var(--i, 0) * 14px);
+    margin-bottom: 24px;
+    padding: 18px 24px 24px;
+    border-radius: 10px;
+    background: var(--tbg); color: var(--tfg);
+    transition: transform .4s var(--ease);
+  }
+  .tema-kuning { --tbg: #F6E10C; --tfg: #34314A; }
+  .tema-putih { --tbg: #FFFFFF; --tfg: #2415E8; }
+  .tema-gelap { --tbg: #27312D; --tfg: #B6F0CF; }
+  .tema-lilac { --tbg: #C9B8FF; --tfg: #1B0F3E; }
+  .tema-hijau { --tbg: #0E4A3F; --tfg: #F4E04D; }
+  .tema-lime { --tbg: #D6F34C; --tfg: #1B2A00; }
+  .tema-pink { --tbg: #FF62A5; --tfg: #2B0A1B; }
+  .tema-mentari { --tbg: #FFD23F; --tfg: #2A1600; }
+  .tema-krem { --tbg: #FFF1D6; --tfg: #C2260B; }
+  .tema-ungu { --tbg: #7A3FF2; --tfg: #F0E8FF; }
+  .tema-prem { --tbg: #3B0F3F; --tfg: #FFB8E8; }
+  .tema-kobalt { --tbg: #1F3BFF; --tfg: #E8EEFF; }
+  .proyek-meta {
+    display: flex; justify-content: space-between; gap: 16px;
+    padding-bottom: 6px; border-bottom: 1px solid color-mix(in srgb, var(--tfg) 35%, transparent);
+    font-family: var(--mono); font-size: .8rem;
+  }
+  .proyek-judul { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin: 0; padding: 8px 0 0; }
+  .proyek-buka {
+    font-size: clamp(2rem, 5vw, 4.5rem); font-weight: 500; letter-spacing: -.04em; line-height: 1.1;
+  }
+  .proyek-buka::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+  .proyek-buka:focus-visible { outline: none; }
+  .proyek:focus-within { outline: 2px solid var(--kuning); outline-offset: 4px; }
+  .panah { flex: none; width: clamp(28px, 4vw, 48px); height: auto; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: square; transition: transform .4s var(--ease); }
+  .proyek:hover .panah, .baris:hover .panah, .kartu-opini:hover .panah { transform: rotate(-45deg); }
+  .proyek-badan { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 32px; padding-top: 10px; }
+  .proyek-badan.polos { grid-template-columns: 1fr; }
+  .proyek-teks { align-self: stretch; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
+  .proyek { overflow: hidden; }
+  .proyek-tahun {
+    position: absolute; right: -.04em; bottom: -.2em; z-index: 0; margin: 0; pointer-events: none; user-select: none;
+    font-size: clamp(9rem, 26vw, 24rem); font-weight: 700; letter-spacing: -.08em; line-height: .8;
+    color: transparent; -webkit-text-stroke: 2px color-mix(in srgb, var(--tfg) 16%, transparent);
+  }
+  .proyek-meta, .proyek-badan { position: relative; z-index: 1; }
+  .proyek-sampul { margin: 0; justify-self: end; margin-right: 14px; }
+  .proyek-sampul img {
+    display: block; height: clamp(300px, 40vw, 470px); width: auto; border-radius: 4px;
+    border: 2px solid var(--tfg); box-shadow: 12px 12px 0 var(--tfg);
+    transform: rotate(var(--miring, 0deg)); transition: transform .6s var(--ease), box-shadow .6s var(--ease);
+  }
+  .proyek:hover .proyek-sampul img { transform: rotate(0deg) translate(-4px, -8px); box-shadow: 18px 20px 0 var(--tfg); }
+  @media (max-width: 700px) {
+    .proyek-badan { grid-template-columns: 1fr; gap: 20px; }
+    .proyek-sampul { justify-self: center; }
+    .proyek-sampul img { height: min(62vh, 440px); }
+  }
+  .proyek-ringkas { margin: 0; max-width: 24ch; font-size: clamp(1.2rem, 2.2vw, 1.85rem); line-height: 1.35; font-weight: 500; letter-spacing: -.02em; }
+
+  /* ---------- Semua tulisan ---------- */
+  .daftar-bagian { padding: 70px 0 40px; }
+  .daftar { margin: 0; padding: 0; list-style: none; border-bottom: 1px solid var(--line); }
+  .daftar li { border-top: 1px solid var(--line); }
+  .baris {
+    width: 100%; display: grid; align-items: center; gap: 8px 24px;
+    grid-template-columns: 64px 1fr minmax(0, 220px) 28px;
+    padding: 22px 0;
+  }
+  .b-tahun, .b-topik { font-family: var(--mono); font-size: .8rem; color: var(--mut); }
+  .b-topik { text-align: right; }
+  .b-judul { font-size: clamp(1.125rem, 2vw, 1.5rem); font-weight: 500; letter-spacing: -.02em; line-height: 1.3; transition: transform .35s var(--ease), color .25s; }
+  .baris .panah { width: 24px; stroke-width: 1.6; color: var(--mut); transition: transform .4s var(--ease), color .25s; }
+  .baris:hover .b-judul { transform: translateX(10px); color: var(--kuning); }
+  .baris:hover .panah { color: var(--kuning); }
+  .kosong { padding: 40px 0; color: var(--mut); border-top: 1px solid var(--line); }
+  @media (max-width: 720px) {
+    .baris { grid-template-columns: 1fr 24px; grid-template-areas: "t p" "j p" "k p"; padding: 18px 0; }
+    .b-tahun { grid-area: t; } .b-judul { grid-area: j; } .b-topik { grid-area: k; text-align: left; } .baris .panah { grid-area: p; }
+  }
+
+  /* ---------- Tulisan online: blok Esai (rel geser) dan Opini (bento warna) ---------- */
+  .tulisan { padding: 70px 0 20px; overflow-x: clip; }
+  .blok { margin-top: 72px; }
+  .blok:first-child { margin-top: 24px; }
+  .blok-kepala { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px 40px; margin-bottom: 36px; }
+  .blok-judul {
+    margin: 0; display: flex; align-items: flex-start; gap: 14px;
+    font-size: clamp(4.25rem, 17vw, 12.5rem); font-weight: 500; letter-spacing: -.07em; line-height: .82;
+  }
+  .blok-judul sup {
+    vertical-align: baseline; margin-top: .45rem;
+    font-family: var(--mono); font-size: .8rem; font-weight: 400; letter-spacing: 0; line-height: 1.2; color: var(--kuning);
+    -webkit-text-stroke: 0;
+  }
+  .blok-bento .blok-judul { color: transparent; -webkit-text-stroke: 2px var(--kuning); }
+  .blok-kanan { display: flex; flex-direction: column; align-items: flex-end; gap: 22px; padding-bottom: 6px; text-align: right; }
+  .blok-ket { margin: 0; max-width: 28ch; color: var(--mut); font-size: 1rem; line-height: 1.5; }
+  @media (max-width: 700px) {
+    .blok-kepala { flex-direction: column; align-items: flex-start; }
+    .blok-kanan { align-items: flex-start; text-align: left; flex-direction: row-reverse; justify-content: space-between; width: 100%; }
+  }
+
+  .rel-kontrol { display: flex; gap: 10px; }
+  .rel-kontrol button {
+    width: 48px; height: 48px; display: grid; place-items: center;
+    border: 1px solid var(--line); border-radius: 50%;
+    transition: background .25s, color .25s, border-color .25s;
+  }
+  .rel-kontrol button:hover { background: var(--fg); color: #000; border-color: var(--fg); }
+  .rel-kontrol svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+  .rel-kontrol .ke-kiri svg { transform: rotate(180deg); }
+
+  .rel {
+    display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding: 10px 0 32px;
+    margin-right: calc(50% - 50vw); padding-right: calc(50vw - 50%);
+    scrollbar-width: none;
+  }
+  .rel::-webkit-scrollbar { display: none; }
+  .kartu-esai {
+    position: relative; flex: 0 0 min(300px, 78vw); min-height: 400px; scroll-snap-align: start;
+    display: flex; flex-direction: column; justify-content: space-between; gap: 28px;
+    padding: 20px; border: 1px solid var(--line); border-radius: 10px; background: #0a0a0a;
+    transition: transform .45s var(--ease), background .3s, color .3s, border-color .3s;
+  }
+  .kartu-atas { display: flex; justify-content: space-between; gap: 12px; font-family: var(--mono); font-size: .78rem; color: var(--mut); transition: color .3s; }
+  .kartu-judul {
+    margin: 0; font-size: 1.6rem; font-weight: 500; letter-spacing: -.035em; line-height: 1.18;
+    display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 7; line-clamp: 7; overflow: hidden;
+  }
+  .kartu-buka { text-align: left; }
+  .kartu-buka::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+  .kartu-buka:focus-visible { outline: none; }
+  .kartu-esai:focus-within, .kartu-opini:focus-within { outline: 2px solid var(--kuning); outline-offset: 4px; }
+  .kartu-tag { display: flex; flex-wrap: wrap; gap: 6px; }
+  .kartu-tag span { padding: 3px 10px; border: 1px solid var(--line); border-radius: 999px; font-family: var(--mono); font-size: .72rem; color: var(--mut); transition: color .3s, border-color .3s; }
+  @media (hover: hover) {
+    .kartu-esai:hover { transform: translateY(-8px); background: var(--hv); color: #111; border-color: var(--hv); }
+    .kartu-esai:hover .kartu-atas, .kartu-esai:hover .kartu-tag span { color: #222; border-color: rgba(0, 0, 0, .3); }
+    .kartu-opini:hover { transform: translateY(-6px) rotate(var(--miring, 0deg)); }
+  }
+
+  .bento { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px; }
+  .kartu-opini {
+    position: relative; grid-column: span var(--span, 6); min-height: 250px;
+    display: flex; flex-direction: column; justify-content: space-between; gap: 28px;
+    padding: 16px 20px 20px; border-radius: 10px; background: var(--tbg); color: var(--tfg);
+    transition: transform .45s var(--ease);
+  }
+  .kartu-opini .kartu-judul { font-size: clamp(1.3rem, 2.2vw, 2rem); letter-spacing: -.04em; line-height: 1.1; -webkit-line-clamp: 4; line-clamp: 4; }
+  .kartu-opini .kartu-isi { display: flex; flex-direction: column; gap: 16px; }
+  .kartu-opini p { margin: 0; max-width: 46ch; font-size: 1rem; line-height: 1.5; opacity: .85; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
+  .kartu-opini.sempit p { display: none; }
+  .kartu-opini .panah { align-self: flex-end; width: 36px; }
+  @media (max-width: 860px) {
+    .bento { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
+    .kartu-opini { grid-column: span var(--span-hp, 6); min-height: 200px; padding: 14px 16px 16px; }
+    .kartu-opini.setengah p { display: none; }
+    .kartu-opini.setengah .kartu-judul { font-size: 1.15rem; }
+  }
+
+  .kelompok { margin: 44px 0 14px; font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 500; letter-spacing: -.03em; color: var(--kuning); }
+  .label + .kelompok { margin-top: 8px; }
+
+  /* ---------- Tentang ---------- */
+  .halaman .tentang-isi { padding-bottom: 90px; }
+  .tentang-isi { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 56px; }
+  .tentang-teks p { margin: 0 0 1.1em; font-size: clamp(1.125rem, 2vw, 1.75rem); line-height: 1.6; font-weight: 500; letter-spacing: -.015em; }
+  .tentang-teks p:last-child { margin-bottom: 0; }
+  .tentang-teks p + p { color: #bdbdbd; font-weight: 400; font-size: clamp(1rem, 1.5vw, 1.25rem); }
+  .tentang-foto { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; filter: grayscale(1); margin-bottom: 28px; }
+  .meta { margin: 0; }
+  .meta dt { display: flex; align-items: center; gap: 12px; font-family: var(--mono); font-size: .8rem; color: #a99e18; margin-top: 26px; }
+  .meta dt:first-child { margin-top: 0; }
+  .meta dt::after { content: ""; flex: 1; height: 1px; background: rgba(246, 225, 12, .35); }
+  .meta dd { margin: 8px 0 0; font-size: 1.15rem; font-weight: 500; color: var(--kuning); line-height: 1.4; }
+  .meta dd a { text-decoration: none; border-bottom: 1px solid rgba(246, 225, 12, .5); }
+  @media (max-width: 860px) { .tentang-isi { grid-template-columns: 1fr; gap: 40px; } }
+
+  /* ---------- Kontak ---------- */
+  .tombol-kontak {
+    display: inline-flex; align-items: center; gap: 10px; margin: 56px 0 0;
+    padding: 20px 56px; border: 1px solid rgba(255, 255, 255, .5);
+    font-family: var(--mono); font-size: .85rem; text-decoration: none;
+    transition: background .25s, color .25s;
+  }
+  .tombol-kontak:hover { background: var(--fg); color: #000; }
+  .tombol-kontak svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+  .sosial { display: flex; justify-content: flex-start; gap: 22px; margin: 56px 0 0; padding: 0; list-style: none; }
+  .sosial a { display: block; color: #9a9a9a; transition: color .2s; }
+  .sosial a:hover { color: var(--kuning); }
+  .sosial svg { width: 22px; height: 22px; fill: currentColor; }
+  .kaki { padding: 24px 0 40px; border-top: 1px solid var(--line); font-family: var(--mono); font-size: .75rem; color: var(--mut); }
+
+  /* ---------- Halaman detail (dialog layar penuh) ---------- */
+  dialog.detail {
+    width: 100%; height: 100%; max-width: none; max-height: none; inset: 0; margin: 0;
+    padding: 0; border: 0; background: var(--bg); color: var(--fg); overflow-y: auto;
+  }
+  dialog.detail[open] { animation: masuk .4s var(--ease); }
+  @keyframes masuk { from { opacity: 0; transform: translateY(18px); } }
+  .detail-atas {
+    position: sticky; top: 0; z-index: 5; height: var(--nav);
+    background: rgba(0, 0, 0, .6); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  }
+  .detail-atas .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; position: relative; }
+  .detail-atas .wrap::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--line); }
+  @media (max-width: 1240px) { .detail-atas .wrap::after { left: 20px; right: 20px; } }
+  .kembali { font-family: var(--mono); font-size: .85rem; display: inline-flex; align-items: center; gap: 10px; padding: 10px 0; transition: color .2s; }
+  .kembali:hover { color: var(--kuning); }
+  .kembali svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.8; transform: rotate(180deg); }
+  .detail-nama { font-size: 1.05rem; color: var(--mut); }
+  .detail-kepala .wrap { padding-top: 80px; padding-bottom: 70px; }
+  .detail-kepala h2 { margin: 0; max-width: 20ch; font-size: clamp(2rem, 5vw, 4.5rem); font-weight: 500; letter-spacing: -.04em; line-height: 1.12; text-wrap: balance; }
+  .detail-isi { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 56px; padding-bottom: 60px; }
+  .detail-lead { margin: 0 0 40px; font-size: clamp(1.25rem, 2.3vw, 1.875rem); line-height: 1.55; font-weight: 500; letter-spacing: -.02em; }
+  .detail-teks p { margin: 0 0 1.4em; max-width: 62ch; font-size: 1.0625rem; line-height: 1.85; color: #b8b8b8; }
+  .detail-gambar { width: 100%; margin: 12px 0 0; border-radius: 4px; }
+  .detail-pengisi { padding-bottom: 100px; }
+  .detail-daftar { padding-bottom: 100px; }
+  .detail-aksi { display: inline-block; margin-top: 12px; padding: 16px 32px; border: 1px solid rgba(255, 255, 255, .5); font-family: var(--mono); font-size: .85rem; text-decoration: none; transition: background .25s, color .25s; }
+  .detail-aksi:hover { background: var(--fg); color: #000; }
+  @media (max-width: 860px) { .detail-isi { grid-template-columns: 1fr; gap: 40px; } .detail-kepala .wrap { padding-top: 50px; padding-bottom: 44px; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- ===================== NAVIGASI ===================== -->
+<nav class="nav" aria-label="Navigasi utama">
+  <div class="wrap">
+    <a class="logo" href="#">Selasar Lutfi</a>
+    <ul>
+      <li><button type="button" data-buka="dlg-tentang">Tentang</button></li>
+      <li><button type="button" data-buka="dlg-hubungi">Hubungi</button></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===================== HERO =====================
+     Nama ada di bawah ini; daftar peran yang berganti ada di PERAN (bagian bawah file). -->
+<header class="hero">
+  <div class="wrap garis">
+    <h1>
+      <span class="nama">Muhammad Lutfi N.S.</span>
+      <span class="peran" id="peran" aria-hidden="true"></span>
+      <span class="sr-only" id="peran-teks">Media Officer, Copywriter, dan Journalist</span>
+    </h1>
+    <div class="penanda" aria-hidden="true"></div>
+  </div>
+</header>
+
+<main>
+  <!-- ===================== KARYA UNGGULAN ===================== -->
+  <section class="karya wrap" id="karya" aria-labelledby="judul-karya">
+    <h2 class="label" id="judul-karya">Karya Cetak</h2>
+    <div id="tumpukan"></div>
+  </section>
+
+  <!-- ===================== TULISAN ONLINE (blok Esai dan Opini) ===================== -->
+  <section class="tulisan wrap" id="tulisan" aria-labelledby="judul-tulisan">
+    <h2 class="label" id="judul-tulisan">Karya Online</h2>
+    <div id="blok-tulisan"></div>
+  </section>
+
+  <!-- ===================== VIDEO, PUBLIC RELATIONS, COPYWRITER (muncul bila ada karyanya) ===================== -->
+  <div id="seksi-lain"></div>
+
+</main>
+
+<footer class="kaki">
+  <div class="wrap">© <span id="tahun-ini">2026</span> Muhammad Lutfi Nanang Setiawan</div>
+</footer>
+
+<!-- Halaman Tentang (dibuka dari menu atas) -->
+<dialog class="detail halaman" id="dlg-tentang" aria-labelledby="judul-tentang">
+  <div class="detail-atas">
+    <div class="wrap">
+      <button type="button" class="kembali" data-tutup>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17M14 6l6 6-6 6"/></svg>
+        kembali
+      </button>
+      <span class="detail-nama">Selasar Lutfi</span>
+    </div>
+  </div>
+  <div class="detail-kepala"><div class="wrap garis"><h2 id="judul-tentang">Tentang</h2></div></div>
+  <div class="wrap tentang-isi">
+    <div class="tentang-teks" id="tentang-teks"></div>
+    <div id="tentang-samping"></div>
+  </div>
+</dialog>
+
+<!-- Halaman Hubungi (dibuka dari menu atas) -->
+<dialog class="detail halaman" id="dlg-hubungi" aria-labelledby="judul-kontak">
+  <div class="detail-atas">
+    <div class="wrap">
+      <button type="button" class="kembali" data-tutup>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17M14 6l6 6-6 6"/></svg>
+        kembali
+      </button>
+      <span class="detail-nama">Selasar Lutfi</span>
+    </div>
+  </div>
+  <div class="detail-kepala"><div class="wrap garis">
+    <h2 id="judul-kontak">Silakan kirim surel untuk melihat bagaimana kita bisa berkolaborasi.</h2>
+    <a class="tombol-kontak" id="tombol-kontak" href="#">kirim surel
+      <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11L11 3M5 3h6v6"/></svg>
+    </a>
+    <ul class="sosial" id="sosial"></ul>
+  </div></div>
+</dialog>
+
+<!-- Halaman detail satu karya -->
+<dialog class="detail" id="detail" aria-labelledby="detail-judul">
+  <div class="detail-atas">
+    <div class="wrap">
+      <button type="button" class="kembali" id="detail-kembali">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17M14 6l6 6-6 6"/></svg>
+        kembali
+      </button>
+      <span class="detail-nama">Selasar Lutfi</span>
+    </div>
+  </div>
+  <div class="detail-kepala"><div class="wrap garis"><h2 id="detail-judul"></h2></div></div>
+  <div class="wrap detail-isi">
+    <div>
+      <p class="detail-lead" id="detail-lead"></p>
+      <div class="detail-teks" id="detail-teks"></div>
+    </div>
+    <dl class="meta" id="detail-meta"></dl>
+  </div>
+  <div class="wrap detail-pengisi" id="detail-media"></div>
+</dialog>
+
+
+<!-- ===================== LOGIKA HALAMAN =====================
+     Tidak perlu diubah untuk menambah tulisan. -->
+<script>
+  var PANAH_SVG = '<svg class="panah" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17M14 6l6 6-6 6"/></svg>';
+  var IKON = {
+    linkedin: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11.5H3V9.75zm6.5 0h3.83v1.57h.05c.53-1 1.84-2.07 3.78-2.07 4.04 0 4.79 2.66 4.79 6.12v5.88h-4v-5.2c0-1.24-.02-2.84-1.73-2.84-1.73 0-2 1.35-2 2.75v5.29h-4V9.75z"/></svg>',
+    surel: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1.3 2L12 12.6 19.7 7H4.3zM4 8.9V17h16V8.9l-8 5.8-8-5.8z"/></svg>'
+  };
+
+  function iniPortofolio(cfg) {
+    var data = cfg.tulisan;
+
+    function buat(tag, kelas, teks) {
+      var el = document.createElement(tag);
+      if (kelas) el.className = kelas;
+      if (teks !== undefined) el.textContent = teks;
+      return el;
+    }
+    function ikonHtml(el, svg) { el.insertAdjacentHTML("beforeend", svg); return el; }
+    function urutTahun(daftar) {
+      // Terbaru di atas; urutan array dipertahankan untuk tahun yang sama
+      return daftar.map(function (d, i) { return { d: d, i: i }; })
+        .sort(function (a, b) { return (b.d.tahun - a.d.tahun) || (a.i - b.i); })
+        .map(function (x) { return x.d; });
+    }
+
+    document.getElementById("tahun-ini").textContent = new Date().getFullYear();
+
+    /* ----- Peran yang berganti di hero ----- */
+    (function () {
+      var wadah = document.getElementById("peran");
+      var peran = cfg.peran || [];
+      document.getElementById("peran-teks").textContent = peran.join(", ");
+      var item = peran.map(function (t, i) {
+        var s = buat("span", "peran-item" + (i === 0 ? " aktif" : ""), t);
+        wadah.appendChild(s);
+        return s;
+      });
+      if (item.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      var i = 0;
+      setInterval(function () {
+        var lama = item[i];
+        i = (i + 1) % item.length;
+        var baru = item[i];
+        lama.classList.remove("aktif"); lama.classList.add("keluar");
+        baru.classList.add("aktif");
+        setTimeout(function () {
+          lama.style.transition = "none";
+          lama.classList.remove("keluar");
+          void lama.offsetWidth;
+          lama.style.transition = "";
+        }, 700);
+      }, 3000);
+    })();
+
+    /* ----- Karya unggulan: semua karya cetak, kartu bertumpuk ----- */
+    (function () {
+      var WARNA = ["kuning", "lilac", "lime", "pink", "mentari", "ungu", "hijau", "kobalt"];
+      var wadah = document.getElementById("tumpukan");
+      urutTahun(data.filter(function (d) { return d.jenis === "Cetak"; })).forEach(function (d, i) {
+        var kartu = buat("article", "proyek tema-" + (d.warna || WARNA[i % WARNA.length]));
+        kartu.style.setProperty("--i", Math.min(i, 3));
+
+        var meta = buat("div", "proyek-meta");
+        meta.appendChild(buat("span", "", String(d.tahun)));
+        meta.appendChild(buat("span", "", d.format || d.kategori));
+
+        var judul = buat("h3", "proyek-judul");
+        var tombol = buat("button", "proyek-buka", d.judulPendek || d.judul);
+        tombol.type = "button";
+        tombol.setAttribute("aria-label", "Buka: " + d.judul);
+        tombol.addEventListener("click", function () { bukaKarya(d, null); });
+        judul.appendChild(tombol);
+        ikonHtml(judul, PANAH_SVG);
+
+        kartu.appendChild(buat("span", "proyek-tahun", String(d.tahun)));
+        kartu.appendChild(meta);
+
+        var badan = buat("div", "proyek-badan");
+        var teks = buat("div", "proyek-teks");
+        teks.appendChild(judul);
+        teks.appendChild(buat("p", "proyek-ringkas", d.intisari || d.ringkasan));
+        badan.appendChild(teks);
+        if (d.gambar) {
+          var fig = buat("figure", "proyek-sampul");
+          var img = buat("img");
+          img.src = d.gambar;
+          img.alt = "Sampul: " + d.judul;
+          img.loading = "eager";
+          img.style.setProperty("--miring", [-2, 1.5, -1, 2][i % 4] + "deg");
+          img.addEventListener("error", function () { fig.remove(); badan.classList.add("polos"); });
+          fig.appendChild(img);
+          badan.appendChild(fig);
+        } else {
+          badan.classList.add("polos");
+        }
+        kartu.appendChild(badan);
+        wadah.appendChild(kartu);
+      });
+    })();
+
+    /* ----- Tulisan online: blok Esai (rel geser) dan Opini (bento warna) ----- */
+    function barisKarya(d, saatKlik) {
+      var li = buat("li");
+      var b = buat("button", "baris");
+      b.type = "button";
+      b.appendChild(buat("span", "b-tahun", String(d.tahun)));
+      b.appendChild(buat("span", "b-judul", d.judul));
+      b.appendChild(buat("span", "b-topik", (d.topik || []).slice(0, 2).join(", ")));
+      ikonHtml(b, PANAH_SVG);
+      b.addEventListener("click", saatKlik);
+      li.appendChild(b);
+      return li;
+    }
+    function sumber(d) { return (d.media || "").split(",")[0]; }
+
+    var HOVER = ["#F6E10C", "#C9B8FF", "#B6F0CF", "#FFFFFF"];
+    var WARNA_OPINI = ["lilac", "kuning", "gelap", "putih", "kuning", "lilac"];
+    var LEBAR_OPINI = [5, 4, 3, 3, 4, 5];
+    var LEBAR_HP = [6, 3, 3, 3, 3, 6];
+    var MIRING = [-1.2, 1, -1.5, 1.5, -1, 1.2];
+
+    function judulKartu(d) {
+      var h = buat("h4", "kartu-judul");
+      var t = buat("button", "kartu-buka", d.judul);
+      t.type = "button";
+      t.addEventListener("click", function () { bukaKarya(d); });
+      h.appendChild(t);
+      return h;
+    }
+
+    (function () {
+      var wadah = document.getElementById("blok-tulisan");
+      (cfg.blok || []).forEach(function (blok) {
+        var karya = urutTahun(data.filter(function (d) { return d.kategori === blok.kategori; }));
+        if (!karya.length) return;
+
+        var el = buat("div", "blok blok-" + blok.tata);
+        var kepala = buat("div", "blok-kepala");
+        var h = buat("h3", "blok-judul", blok.kategori);
+        h.appendChild(buat("sup", "", karya.length + " tulisan"));
+        kepala.appendChild(h);
+        var kanan = buat("div", "blok-kanan");
+        if (blok.ket) kanan.appendChild(buat("p", "blok-ket", blok.ket));
+        kepala.appendChild(kanan);
+        el.appendChild(kepala);
+
+        if (blok.tata === "rel") {
+          var rel = buat("div", "rel");
+          rel.tabIndex = 0;
+          rel.setAttribute("role", "region");
+          rel.setAttribute("aria-label", "Daftar " + blok.kategori.toLowerCase());
+          karya.forEach(function (d, i) {
+            var kartu = buat("article", "kartu-esai");
+            kartu.style.setProperty("--hv", HOVER[i % HOVER.length]);
+            var atas = buat("div", "kartu-atas");
+            atas.appendChild(buat("span", "", String(d.tahun)));
+            atas.appendChild(buat("span", "", sumber(d)));
+            var tag = buat("div", "kartu-tag");
+            (d.topik || []).slice(0, 2).forEach(function (t) { tag.appendChild(buat("span", "", t)); });
+            kartu.appendChild(atas);
+            kartu.appendChild(judulKartu(d));
+            kartu.appendChild(tag);
+            rel.appendChild(kartu);
+          });
+          var kontrol = buat("div", "rel-kontrol");
+          [["ke-kiri", "Geser ke kiri", -1], ["ke-kanan", "Geser ke kanan", 1]].forEach(function (c) {
+            var b = buat("button", c[0]);
+            b.type = "button";
+            b.setAttribute("aria-label", c[1]);
+            ikonHtml(b, '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17M14 6l6 6-6 6"/></svg>');
+            b.addEventListener("click", function () { rel.scrollBy({ left: c[2] * rel.clientWidth * 0.8, behavior: "smooth" }); });
+            kontrol.appendChild(b);
+          });
+          kanan.appendChild(kontrol);
+          el.appendChild(rel);
+        } else {
+          var grid = buat("div", "bento");
+          karya.forEach(function (d, i) {
+            var kartu = buat("article", "kartu-opini tema-" + WARNA_OPINI[i % WARNA_OPINI.length]);
+            kartu.style.setProperty("--span", LEBAR_OPINI[i % LEBAR_OPINI.length]);
+            kartu.style.setProperty("--span-hp", LEBAR_HP[i % LEBAR_HP.length]);
+            kartu.style.setProperty("--miring", MIRING[i % MIRING.length] + "deg");
+            if (LEBAR_OPINI[i % LEBAR_OPINI.length] <= 3) kartu.classList.add("sempit");
+            if (LEBAR_HP[i % LEBAR_HP.length] <= 3) kartu.classList.add("setengah");
+            var meta = buat("div", "proyek-meta");
+            meta.appendChild(buat("span", "", String(d.tahun)));
+            meta.appendChild(buat("span", "", sumber(d)));
+            var isi = buat("div", "kartu-isi");
+            isi.appendChild(judulKartu(d));
+            isi.appendChild(buat("p", "", d.ringkasan));
+            kartu.appendChild(meta);
+            kartu.appendChild(isi);
+            ikonHtml(kartu, PANAH_SVG);
+            grid.appendChild(kartu);
+          });
+          el.appendChild(grid);
+        }
+        wadah.appendChild(el);
+      });
+    })();
+
+    /* ----- Tentang ----- */
+    (function () {
+      var teks = document.getElementById("tentang-teks");
+      (cfg.tentang || []).forEach(function (p) { teks.appendChild(buat("p", "", p)); });
+      var samping = document.getElementById("tentang-samping");
+      if (cfg.foto) {
+        var f = buat("img", "tentang-foto");
+        f.src = cfg.foto; f.alt = "Foto Muhammad Lutfi";
+        f.addEventListener("error", function () { f.remove(); });
+        samping.appendChild(f);
+      }
+      var dl = buat("dl", "meta");
+      (cfg.riwayat || []).forEach(function (r) {
+        dl.appendChild(buat("dt", "", r.label));
+        dl.appendChild(buat("dd", "", r.nilai));
+      });
+      samping.appendChild(dl);
+    })();
+
+    /* ----- Kontak ----- */
+    (function () {
+      var sosial = document.getElementById("sosial");
+      (cfg.profil || []).forEach(function (p) {
+        if (!p.url) return;
+        if (p.ikon === "surel") document.getElementById("tombol-kontak").href = p.url;
+        var li = buat("li");
+        var a = buat("a");
+        a.href = p.url;
+        a.setAttribute("aria-label", p.label);
+        if (/^https?:/.test(p.url)) { a.target = "_blank"; a.rel = "noopener"; }
+        ikonHtml(a, IKON[p.ikon] || "");
+        li.appendChild(a);
+        sosial.appendChild(li);
+      });
+    })();
+
+    /* ----- Halaman detail satu karya ----- */
+    var detail = document.getElementById("detail");
+
+    function isiMeta(dl, pasangan) {
+      dl.innerHTML = "";
+      pasangan.forEach(function (p) {
+        if (!p[1]) return;
+        dl.appendChild(buat("dt", "", p[0]));
+        dl.appendChild(buat("dd", "", p[1]));
+      });
+    }
+
+    function bukaKarya(d) {
+      document.getElementById("detail-judul").textContent = d.judul;
+      document.getElementById("detail-lead").textContent = d.ringkasan;
+
+      var teks = document.getElementById("detail-teks");
+      teks.innerHTML = "";
+      (Array.isArray(d.detail) ? d.detail : [d.detail || ""]).forEach(function (p) { teks.appendChild(buat("p", "", p)); });
+
+      isiMeta(document.getElementById("detail-meta"), [
+        ["tahun", String(d.tahun)],
+        ["terbit", d.media],
+        ["jenis", d.jenis],
+        ["kategori", d.kategori],
+        ["topik", (d.topik || []).join(", ")]
+      ]);
+
+      var media = document.getElementById("detail-media");
+      media.innerHTML = "";
+      if (d.gambar) {
+        var img = buat("img", "detail-gambar");
+        img.src = d.gambar; img.alt = "Sampul: " + d.judul;
+        img.addEventListener("error", function () { img.remove(); });
+        media.appendChild(img);
+      }
+      if (d.tautan && d.tautan.url) {
+        var a = buat("a", "detail-aksi", d.tautan.label || "Baca tulisan lengkap");
+        a.href = d.tautan.url; a.target = "_blank"; a.rel = "noopener";
+        var aksi = buat("div");
+        aksi.appendChild(a);
+        media.appendChild(aksi);
+      }
+      document.documentElement.classList.add("kunci");
+      detail.showModal();
+      detail.scrollTop = 0;
+    }
+    document.getElementById("detail-kembali").addEventListener("click", function () { detail.close(); });
+    detail.addEventListener("close", function () { document.documentElement.classList.remove("kunci"); });
+
+    /* ----- Halaman Tentang dan Hubungi (dibuka dari menu atas) ----- */
+    Array.prototype.forEach.call(document.querySelectorAll("[data-buka]"), function (tombol) {
+      var dlg = document.getElementById(tombol.getAttribute("data-buka"));
+      tombol.addEventListener("click", function () {
+        dlg.showModal();
+        dlg.scrollTop = 0;
+        document.documentElement.classList.add("kunci");
+      });
+      dlg.addEventListener("close", function () { document.documentElement.classList.remove("kunci"); });
+      dlg.querySelector("[data-tutup]").addEventListener("click", function () { dlg.close(); });
+    });
+
+    /* ----- Bagian lain (Video, Public Relations, Copywriter): tampil bila ada karyanya ----- */
+    (function () {
+      var wadah = document.getElementById("seksi-lain");
+      (cfg.seksi || []).forEach(function (sk) {
+        var karya = urutTahun(data.filter(function (d) { return d.jenis === sk.jenis; }));
+        if (!karya.length) return;
+        var sec = buat("section", "daftar-bagian wrap");
+        sec.id = sk.id || sk.jenis.toLowerCase();
+        sec.appendChild(buat("h2", "label", sk.label));
+        var kelompok = [];
+        karya.forEach(function (d) { var k = d.kelompok || ""; if (kelompok.indexOf(k) === -1) kelompok.push(k); });
+        kelompok.forEach(function (k) {
+          if (k) sec.appendChild(buat("h3", "kelompok", k));
+          var ul = buat("ul", "daftar");
+          karya.filter(function (d) { return (d.kelompok || "") === k; }).forEach(function (d) {
+            ul.appendChild(barisKarya(d, function () { bukaKarya(d); }));
+          });
+          sec.appendChild(ul);
+        });
+        wadah.appendChild(sec);
+      });
+    })();
+
+  }
+</script>
+
+<!-- ===================== DATA =====================
+     Semua isi yang bisa Anda ubah ada di blok ini.
+
+     Urutan halaman: Karya Cetak (semua karya jenis "Cetak"), Karya Online (blok Esai
+     dan Opini), lalu bagian SEKSI (Video, Copywriter) bila ada karyanya.
+
+     SEKSI          : bagian tambahan di bawah "Karya Online". jenis harus sama dengan
+                      kolom jenis pada karya; label adalah judul bagian.
+     BLOK_TULISAN   : blok di "Karya Online" (Esai, Opini) beserta tata letaknya.
+     PERAN          : peran yang bergantian di bawah nama di hero.
+     TENTANG        : paragraf bagian Tentang.
+     RIWAYAT        : baris ringkas di samping bagian Tentang.
+     FOTO           : alamat foto, mis. "gambar/foto.jpg" (kosongkan bila tidak dipakai).
+     TAUTAN_PROFIL  : LinkedIn dan surel (ikon: "linkedin" atau "surel").
+
+     TULISAN: satu blok { ... } = satu karya.
+       jenis     : "Cetak" (masuk Karya Cetak), "Online", "Video", atau "Copywriter"
+       kategori  : "Riset", "Esai", atau "Opini". Esai dan Opini tampil di "Karya Online"
+       tahun     : angka, mis. 2025
+       judul     : judul lengkap
+       ringkasan : 1-2 kalimat; tampil sebagai paragraf pembuka di halaman detail
+       detail    : array paragraf; tampil di halaman detail
+       topik     : array tag topik
+       media     : (opsional) tempat terbit dan tanggal
+       tautan    : (opsional) { label: "Baca di ...", url: "https://..." }
+       gambar    : (opsional) alamat sampul, mis. "gambar/pop-culture.jpg"
+       Khusus jenis "Cetak" (kartu bertumpuk):
+       judulPendek : (opsional) judul singkat untuk kartu
+       intisari    : (opsional) satu kalimat inti; tampil di kartu yang tanpa gambar
+       format      : (opsional) label di kanan atas kartu, mis. "Majalah"
+       warna       : (opsional) "kuning", "putih", "gelap", "lilac", "hijau", "lime", "pink", "mentari", "krem", "ungu", "prem", atau "kobalt". Pilih warna yang kontras dengan sampul
+     Semua daftar diurutkan otomatis dari tahun terbaru.
+     Khusus jenis "Copywriter":
+       kelompok    : (opsional) pengelompokan di bagian Copywriter, mis. "Public Relations (Masyarakat Ekonomi Syariah)"
+     Untuk menambah karya copywriter (termasuk PR), tambahkan blok baru dengan jenis: "Copywriter". -->
+<script>
+  // Bagian di bawah "Karya Online". Hanya tampil bila ada karya dengan jenis tersebut.
+  var SEKSI = [
+    { jenis: "Video", label: "video" },
+    { jenis: "Copywriter", label: "copywriter" }
+  ];
+
+  // Blok di "Karya Online". kategori harus sama dengan kolom kategori pada tulisan.
+  // tata: "rel" (kartu geser ke samping) atau "bento" (kartu warna-warni).
+  var BLOK_TULISAN = [
+    { kategori: "Esai", tata: "rel" },
+    { kategori: "Opini", tata: "bento" }
+  ];
+
+  var PERAN = ["Media Officer", "Copywriter", "Journalist"];
+
+  var TENTANG = [
+    "Saya Muhammad Lutfi Nanang Setiawan, mahasiswa sarjana UIN Walisongo Semarang dengan pengalaman di dunia kepenulisan, riset, dan jurnalistik. Lewat Lembaga Pers Mahasiswa Justisia, saya mengasah kemampuan menulis, wawancara, serta mengolah dan memvisualisasikan data.",
+    "Sejak 2024 saya menjadi Media Officer di Masyarakat Ekonomi Syariah, NGO yang berfokus pada akselerasi literasi dan inklusi keuangan syariah di Indonesia. Di sana saya terlibat dalam pembuatan konten strategis, manajemen media sosial, dan komunikasi organisasi."
+  ];
+
+  var RIWAYAT = [
+    { label: "sekarang", nilai: "Media Officer, Masyarakat Ekonomi Syariah" },
+    { label: "sebelumnya", nilai: "Pemimpin Umum LPM Justisia, 2022-2023" },
+    { label: "pendidikan", nilai: "S1 Ilmu Falak, UIN Walisongo Semarang" },
+    { label: "sertifikasi", nilai: "Harian Kompas dan Tempo Institute" }
+  ];
+
+  var FOTO = "";
+
+  var TAUTAN_PROFIL = [
+    { label: "LinkedIn", url: "https://www.linkedin.com/in/lutfi13/", ikon: "linkedin" },
+    { label: "Surel", url: "mailto:muhammadlutfi130202@gmail.com", ikon: "surel" }
+  ];
+
+  var TULISAN = [
+    /* ------------ Riset dan karya cetak/video ------------ */
+    {
+      kategori: "Riset",
+      jenis: "Cetak",
+      tahun: 2024,
+      judul: "Majalah Edisi 55: Grusak-Grusuk Komersialisasi Perguruan Tinggi",
+      intisari: "UKT naik, kuliah putus, dan kebijakan Wajib Ma’had yang timpang.",
+      warna: "hijau",
+      gambar: "gambar/majalah-55.jpg",
+      judulPendek: "Komersialisasi Perguruan Tinggi",
+      format: "Majalah",
+      ringkasan: "Majalah LPM Justisia yang menelusuri aktivitas BLU dan biaya pendidikan, ketimpangan kebijakan Wajib Ma’had, hingga mahasiswa yang gagal kuliah karena UKT.",
+      detail: [
+        "Majalah ini memaparkan persoalan pendidikan dari beberapa sisi: bagaimana aktivitas BLU berimplikasi pada biaya pendidikan, serta ketimpangan kebijakan Wajib Ma’had yang menjadi program unggulan. Laporan ditutup dengan kisah mahasiswa yang gagal kuliah akibat besarnya UKT.",
+        "Sebagai Pemimpin Umum, saya memantau perencanaan tema dan isi, dari pemilihan angle liputan, mengontrol kinerja, membantu Pimpinan Redaksi membentuk dan mengelola redaksi, hingga mengevaluasi kinerja redaksi dari awal sampai akhir."
+      ],
+      topik: ["Pendidikan tinggi", "Majalah"],
+      media: "LPM Justisia, Agustus 2023 sampai Februari 2024",
+      tautan: { label: "Baca di Internet Archive", url: "https://archive.org/details/majalah-justisia-edisi-55-tahun-2023_202405" }
+    },
+    {
+      kategori: "Riset",
+      jenis: "Cetak",
+      tahun: 2024,
+      judul: "Jurnal Edisi 55: Pop Culture, Mencatat Penyebaran Tren Budaya Pop Lintas Batas",
+      intisari: "Dari fast fashion sampai identitas Gen Z: budaya pop yang melintasi batas.",
+      warna: "lime",
+      judulPendek: "Pop Culture",
+      format: "Jurnal",
+      gambar: "gambar/pop-culture.jpg",
+      ringkasan: "Jurnal LPM Justisia tentang budaya populer yang melintasi batas geografis dan sosial: fast fashion, perilaku konsumtif, dan identitas Generasi Z.",
+      detail: [
+        "Jurnal ini memaparkan dinamika penyebaran budaya populer lintas batas lewat beberapa perspektif: pengaruhnya pada isu lingkungan dalam fenomena fast fashion, hegemoninya terhadap perilaku konsumtif, ambivalensinya dalam kehidupan masyarakat, hingga pembentukan identitas sosial Generasi Z.",
+        "Sebagai Pemimpin Umum, saya memantau perencanaan tema dan isi, memilih tema dan angle penulisan, mengoordinasikan kerja redaksi, dan mengevaluasi seluruh proses dari perencanaan, penyuntingan, produksi, sampai publikasi."
+      ],
+      topik: ["Budaya populer", "Jurnal"],
+      media: "LPM Justisia, Agustus 2023 sampai Januari 2024",
+      tautan: { label: "Baca di Internet Archive", url: "https://archive.org/details/pop-culture-mencatat-penyebaran-tren-budaya-pop-lintas-batas" }
+    },
+    {
+      kategori: "Riset",
+      jenis: "Video",
+      tahun: 2023,
+      judul: "Ketika Mangkang Menjadi Mangkok",
+      ringkasan: "Video dokumenter tentang amblesan tanah di Kawasan 3M Semarang dan warga yang harus mengurug serta meninggikan rumah dengan biaya besar.",
+      detail: [
+        "Kawasan 3M, yaitu Kelurahan Mangkang Wetan, Mangunharjo, dan Mangkang Kulon di Kota Semarang, menjadi sorotan karena risiko amblesan tanah yang meningkat. Sebagian pihak menganggapnya kecil, tetapi warga setempat harus mengurug dan meninggikan rumah dengan biaya tidak sedikit. Dokumenter ini merekam masalah itu dan kisah perjuangan serta kerentanan warga selama satu dekade terakhir.",
+        "Sebagai Pemimpin Umum, saya mengontrol kinerja Redaksi Videografi dalam memproduksi dokumenter ini, menjadi supervisor untuk isu yang diangkat, dan ikut memilih footage yang sesuai dengan koridor jurnalistik."
+      ],
+      topik: ["Amblesan tanah", "Video dokumenter"],
+      media: "LPM Justisia, November sampai Desember 2023",
+      tautan: { label: "Tonton di YouTube", url: "https://youtu.be/oJ6z7XLyhog" }
+    },
+    {
+      kategori: "Riset",
+      jenis: "Cetak",
+      tahun: 2023,
+      judul: "Buletin Edisi 1 Tahun 2023",
+      intisari: "Toleransi dalam banyak makna.",
+      warna: "pink",
+      gambar: "gambar/buletin.jpg",
+      judulPendek: "Buletin Edisi 1",
+      format: "Buletin",
+      ringkasan: "Buletin LPM Justisia yang membandingkan ragam pandangan tentang toleransi beragama.",
+      detail: [
+        "Pandangan tentang toleransi sangat beragam. Ada yang memaknainya sebagai membiarkan orang lain berkeyakinan tanpa intervensi, sementara yang lain menganggap penting menjalankan kewajiban agama tanpa penolakan terhadap kegiatan keagamaan. Buletin ini menyandingkan pandangan-pandangan itu.",
+        "Sebagai Pemimpin Umum, saya memantau perencanaan tema dan isi, termasuk pemilihan angle liputan, mengontrol kinerja, dan membantu Elsa serta Kru Magang membentuk dan mengelola redaksi."
+      ],
+      topik: ["Toleransi", "Buletin"],
+      media: "LPM Justisia, September sampai Desember 2023",
+      tautan: { label: "Baca di Internet Archive", url: "https://archive.org/details/buletin-edisi-1-tahun-2023" }
+    },
+    {
+      kategori: "Riset",
+      jenis: "Cetak",
+      tahun: 2023,
+      judul: "Liksa Edisi 32: Aku Mahasiswa",
+      intisari: "Cerpen, puisi, dan kritik sastra sebagai penghibur.",
+      warna: "mentari",
+      gambar: "gambar/liksa.jpg",
+      judulPendek: "Liksa: Aku Mahasiswa",
+      format: "Produk sastra",
+      ringkasan: "Produk sastra LPM Justisia yang hadir sebagai penghibur lewat cerita pendek, puisi, prosa, dan kritik sastra.",
+      detail: [
+        "Liksa punya tempat sendiri bagi Justisia. Jika dua produk lainnya serius, Liksa hadir sebagai penghibur: tulisan yang mendayu dan santai, seperti cerita pendek, puisi, prosa, atau kritik sastra, untuk menyentuh titik flamboyan pembaca.",
+        "Sebagai Pemimpin Umum, saya memantau perencanaan tema dan isi, mengontrol kinerja, membantu Pimpinan Redaksi mengelola redaksi, dan mengevaluasi seluruh kinerja redaksi dari awal sampai akhir."
+      ],
+      topik: ["Sastra", "Liksa"],
+      media: "LPM Justisia, Agustus sampai Oktober 2023",
+      tautan: { label: "Baca di Internet Archive", url: "https://archive.org/details/liksa-edisi-32-tahun-2023" }
+    },
+    {
+      kategori: "Riset",
+      jenis: "Cetak",
+      tahun: 2023,
+      judul: "Majalah Edisi 54: Pantura Tenggelam",
+      intisari: "Rob yang menenggelamkan pesisir pantura, dan warga yang bertahan.",
+      warna: "krem",
+      judulPendek: "Pantura Tenggelam",
+      format: "Majalah",
+      gambar: "gambar/pantura-tenggelam.jpg",
+      ringkasan: "Majalah LPM Justisia tentang rob di pesisir pantura, ditelaah lewat studi ekologi dan sejarah perjuangan warga terdampak.",
+      detail: [
+        "Pengurus LPM Justisia periode 2022-2023 menerbitkan Majalah Edisi 54 dengan tema bencana rob yang terus melanda pesisir pantura. Rob tidak dilihat semata sebagai faktor alam: liputannya menelaah secara komprehensif lewat studi ekologi, termasuk mencatat sejarah dan perjuangan warga menghadapi bencana menahun itu.",
+        "Sebagai Pemimpin Umum, saya memantau perencanaan tema dan isi, termasuk pemilihan narasumber, mengontrol kinerja, membantu Pimpinan Redaksi mengelola redaksi, dan mengevaluasi seluruh kinerja redaksi."
+      ],
+      topik: ["Rob pesisir", "Majalah"],
+      media: "LPM Justisia, Mei sampai Agustus 2023",
+      tautan: { label: "Baca di Internet Archive", url: "https://archive.org/details/majalah-54-tahun-2023" }
+    },
+    {
+      kategori: "Riset",
+      jenis: "Video",
+      tahun: 2023,
+      judul: "Pantura Tenggelam: Tanah yang Hilang (Chapter Semarang)",
+      ringkasan: "Dokumenter tentang rob dan abrasi di Tambaklorok, Tambakrejo, dan Mangkang Wetan, serta harapan warga pesisir Semarang.",
+      detail: [
+        "Redaksi Videografi LPM Justisia melanjutkan liputan features dari Demak ke Semarang. Video ini mengeksplorasi rob dan abrasi di Tambaklorok, Tambakrejo, dan Mangkang Wetan: tantangan dan harapan warga pesisir yang menghadapi kenaikan permukaan laut, perubahan iklim, dan pembangunan berlebihan. Ia menelusuri aspek geologis dan ekologis, juga dampak sosial dan ekonomi bagi warga.",
+        "Sebagai Pemimpin Umum, saya mengontrol kinerja Redaksi Videografi, menjadi supervisor untuk isu yang diangkat, dan ikut memilih footage yang sesuai dengan koridor jurnalistik."
+      ],
+      topik: ["Rob dan abrasi", "Video dokumenter"],
+      media: "LPM Justisia, Juni sampai Juli 2023",
+      tautan: { label: "Tonton di YouTube", url: "https://youtu.be/0k8idRNfaYk" }
+    },
+    {
+      kategori: "Riset",
+      jenis: "Video",
+      tahun: 2023,
+      judul: "Pantura Tenggelam: Tanah yang Hilang (Chapter Demak)",
+      ringkasan: "Dokumenter tentang tenggelamnya pesisir utara Jawa akibat rob, lewat wawancara dengan warga Timbulsloko, Demak, dan narasumber lain.",
+      detail: [
+        "Video ini menyoroti tenggelamnya pesisir utara Jawa akibat rob masif, yang disebabkan kurangnya perhatian dan keseriusan pemerintah mengelola wilayah pesisir. Lewat wawancara dengan berbagai narasumber, termasuk warga Timbulsloko, Demak, dokumenter menggambarkan dampaknya: sulitnya akses jalan, mahalnya renovasi rumah, hilangnya tempat bermain anak, terganggunya air bersih, dan tidak pastinya pendapatan dari perikanan.",
+        "Sebagai Pemimpin Umum, saya mengontrol kinerja Redaksi Videografi, menjadi supervisor untuk isu yang diangkat, dan ikut memilih footage yang sesuai dengan koridor jurnalistik."
+      ],
+      topik: ["Rob pesisir", "Video dokumenter"],
+      media: "LPM Justisia, Mei sampai Juni 2023",
+      tautan: { label: "Tonton di YouTube", url: "https://youtu.be/-uonEBNYmo0" }
+    },
+    {
+      kategori: "Riset",
+      jenis: "Cetak",
+      tahun: 2023,
+      judul: "Jurnal Edisi 54: Pasca Kolonialisme",
+      intisari: "Kolonialisme yang belum selesai.",
+      warna: "ungu",
+      gambar: "gambar/pasca-kolonialisme.jpg",
+      judulPendek: "Pasca Kolonialisme",
+      format: "Jurnal",
+      ringkasan: "Jurnal LPM Justisia tentang kolonialisme yang belum sepenuhnya selesai dan hegemoni Negara Dunia Pertama atas Dunia Ketiga.",
+      detail: [
+        "Jika majalah Justisia berperan sebagai watchdog lewat liputan, jurnal menjadi penyeimbang sebagai penyumbang wacana akademik. Edisi 2023 ini mengulas bagaimana kolonialisme di muka bumi tidak sepenuhnya selesai: Negara Dunia Pertama punya gurita untuk memainkan kuasanya terhadap Negara Dunia Ketiga seperti Indonesia, lewat agenda yang digerakkan dengan semangat hegemoni.",
+        "Sebagai Pemimpin Umum, saya memantau perencanaan tema dan isi, termasuk pemilihan subtema, mengontrol kinerja, dan membantu Pimpinan Redaksi mengelola redaksi."
+      ],
+      topik: ["Pascakolonial", "Jurnal"],
+      media: "LPM Justisia, Februari sampai Mei 2023",
+      tautan: { label: "Baca di Internet Archive", url: "https://archive.org/details/jurnal-edisi-53-tahun-2023" }
+    },
+    {
+      kategori: "Riset",
+      jenis: "Cetak",
+      tahun: 2022,
+      judul: "Laporan Tahunan 2022 YPK Elsa",
+      intisari: "Rumah ibadah ditolak, makam diteror, Penghayat dipersulit.",
+      warna: "prem",
+      judulPendek: "Intoleransi dan Situasi Keberagamaan",
+      format: "Laporan riset",
+      gambar: "gambar/intoleransi-jateng.jpg",
+      ringkasan: "Laporan kebebasan beragama dan berkeyakinan di Jawa Tengah; saya menulis kondisi Penghayat Kepercayaan, termasuk kasus krematorium umat Hindu di Semarang.",
+      detail: [
+        "Laporan tahunan 2022 yang melaporkan kondisi 2021 ini menemukan kasus penolakan pendirian rumah ibadah, kebijakan walikota tentang pendirian rumah ibadah, diskriminasi layanan pendidikan bagi penganut Kepercayaan, teror makam, serta penangkapan terduga teroris di Jawa Tengah.",
+        "Sebagai penulis, saya ikut meneliti, mewawancarai, mengolah, menulis, dan mempublikasikan kondisi Penghayat Kepercayaan yang aksesnya sulit. Kasus yang saya kerjakan: penolakan pendirian krematorium umat Hindu di Semarang dan akses pendidikan yang dipersulit di Cilacap."
+      ],
+      topik: ["Kebebasan beragama", "Laporan riset"],
+      media: "Yayasan Pemberdayaan Komunitas Lembaga Sosial Agama (YPK Elsa), September sampai Desember 2022",
+      tautan: { label: "Baca di situs Elsa", url: "https://elsaonline.com/laporan-tahunan-kebebasan-beragama-dan-berkeyakinan-di-jawa-tengah-2022/" }
+    },
+    {
+      kategori: "Riset",
+      jenis: "Cetak",
+      tahun: 2021,
+      judul: "Laporan Tahunan 2021 YPK Elsa: Teror Makam dan Bahaya Laten Intoleransi di Lembaga Pendidikan",
+      intisari: "Teror makam dan intoleransi laten di lembaga pendidikan.",
+      warna: "kobalt",
+      gambar: "gambar/teror-makam.jpg",
+      judulPendek: "Teror Makam",
+      format: "Laporan riset",
+      ringkasan: "Laporan kebebasan beragama dan berkeyakinan di Jawa Tengah; saya menulis kasus penolakan pemakaman Penghayat Kepercayaan di Kendal.",
+      detail: [
+        "Laporan tahunan 2021 yang melaporkan kondisi 2020 ini mencatat kasus penolakan pendirian rumah ibadah, kebijakan walikota tentang rumah ibadah, diskriminasi layanan pendidikan bagi penganut Kepercayaan, teror makam yang menjadi polemik, serta penangkapan terduga teroris.",
+        "Sebagai penulis, saya ikut meneliti, mewawancarai, mengolah, menulis, dan mempublikasikan kondisi Penghayat Kepercayaan. Kasus yang saya kerjakan: penolakan pemakaman Penghayat Kepercayaan di Kendal."
+      ],
+      topik: ["Kebebasan beragama", "Laporan riset"],
+      media: "Yayasan Pemberdayaan Komunitas Lembaga Sosial Budaya (YPK Elsa), Agustus sampai Desember 2021",
+      tautan: { label: "Baca di situs Elsa", url: "https://elsaonline.com/laporan-tahunan-kebebasan-beragama-dan-berkeyakinan-di-jawa-tengah-2021/" }
+    },
+
+    /* ------------ Tulisan online ------------ */
+    {
+      kategori: "Esai",
+      jenis: "Online",
+      tahun: 2022,
+      judul: "Ketika Gadamer Membaca Ihwal Jurnalistik",
+      ringkasan: "Membaca liputan features tentang perjuangan transgender di Semarang lewat hermeneutika Gadamer: bagaimana pra-pemahaman wartawan memengaruhi liputan.",
+      detail: [
+        "Tulisan ini berangkat dari liputan features tentang perjuangan transgender di Semarang, termasuk hak akses publik. Absennya suara LSM dalam liputan itu menciptakan ketidakseimbangan yang menarik perhatian. Jurnalistik sebagai forum publik harus mengikuti kode etik untuk menjaga integritasnya.",
+        "Dengan hermeneutika Gadamer, saya menguraikan bahwa wartawan perlu memahami hubungan antara interpretasi dan pra-pemahamannya sendiri. Identitas tidak boleh memengaruhi narasi liputan, dan media yang baik memberi informasi yang benar agar pembaca bisa mengambil keputusan yang tepat."
+      ],
+      topik: ["Jurnalistik", "Hermeneutika"],
+      media: "The Columnist, 20 Juli 2022",
+      tautan: { label: "Baca di The Columnist", url: "https://thecolumnist.id/artikel/ketika-gadamer-membaca-ihwal-jurnalistik-2215" }
+    },
+    {
+      kategori: "Esai",
+      jenis: "Online",
+      tahun: 2022,
+      judul: "Eksistensialisme Sartre: Menyemai Kebebasan Diri dalam Belenggu Asumsi di Media Sosial",
+      ringkasan: "Membaca kebebasan diri di tengah asumsi media sosial lewat eksistensialisme Sartre.",
+      detail: [
+        "Fenomena bergerak dengan cara kerjanya sendiri. Tanpa suntikan subjektivitas dari kita, ia tampak murni tanpa anasir lain yang memengaruhi. Justru dari fenomena itu, manusia yang membawa subjektivitas dituntut menyesuaikan diri.",
+        "Tulisan ini memakai eksistensialisme Sartre untuk membaca bagaimana kebebasan diri bisa disemai di tengah belenggu asumsi di media sosial."
+      ],
+      topik: ["Filsafat", "Media sosial"],
+      media: "LSF Discourse, 1 April 2022",
+      tautan: { label: "Baca di LSF Discourse", url: "https://lsfdiscourse.org/eksistensialisme-sartre-menyemai-kebebasan-diri-dalam-belenggu-asumsi-di-media-sosial/" }
+    },
+    {
+      kategori: "Esai",
+      jenis: "Online",
+      tahun: 2022,
+      judul: "Teori Kritis: Marxisme Sudah Layu",
+      ringkasan: "Neo-Marxisme mengkritik pemikiran Marx yang dianggap layu sekaligus meneruskannya sesuai perubahan zaman.",
+      detail: [
+        "Dalam banyak karyanya, Marx selalu terdepan mengelu-elukan meletusnya revolusi: perbaikan nasib, perubahan struktur dan kelas sosial, juga hilangnya ketimpangan dan ketertindasan.",
+        "Neo-Marxisme mengkritik pemikiran Marx yang sudah layu sekaligus meneruskannya dengan menyesuaikan perubahan zaman yang kompleks. Tulisan ini mengulas pergeseran itu lewat teori kritis."
+      ],
+      topik: ["Teori kritis", "Marxisme"],
+      media: "LSF Discourse, 28 Februari 2022",
+      tautan: { label: "Baca di LSF Discourse", url: "https://lsfdiscourse.org/teori-kritis-marxisme-sudah-layu/" }
+    },
+    {
+      kategori: "Opini",
+      jenis: "Online",
+      tahun: 2022,
+      judul: "Menuju Pendidikan Erat Kehidupan",
+      ringkasan: "Lewat pemikiran WS. Rendra, tulisan ini mengingatkan bahwa pendidikan harus relevan dengan kehidupan dan benar-benar diterapkan.",
+      detail: [
+        "Sajak WS. Rendra mengingatkan pentingnya pendidikan yang relevan dengan kehidupan dan implementasi pengetahuan. Pendidikan seharusnya tidak hanya soal nilai, tetapi juga penerapan dalam kehidupan sehari-hari.",
+        "Implementasi konkret pengetahuan memang sulit, tetapi bila dilakukan, pendidikan dapat menjadi solusi bagi permasalahan. Guru dan murid perlu memiliki pandangan yang sama, dan pelajar diharapkan menerapkan pengetahuan di desa untuk membangun komunitas."
+      ],
+      topik: ["Pendidikan", "WS. Rendra"],
+      media: "The Columnist, 30 Januari 2022",
+      tautan: { label: "Baca di The Columnist", url: "https://thecolumnist.id/artikel/menuju-pendidikan-erat-kehidupan-2053" }
+    },
+    {
+      kategori: "Esai",
+      jenis: "Online",
+      tahun: 2022,
+      judul: "4 Warung Makan di Semarang yang Buka Dini Hari",
+      ringkasan: "Catatan empat warung makan dini hari di Semarang dari sudut pandang mahasiswa perantau.",
+      detail: [
+        "Bagi mahasiswa perantau yang hampir 3,5 tahun tinggal di Semarang, biaya hidup sehari-hari, termasuk makan, adalah momok nomor satu. Menjelang dini hari, urusan makan menjadi klimaksnya.",
+        "Tulisan ini mencatat empat warung makan di Semarang yang tetap buka pada jam-jam itu."
+      ],
+      topik: ["Kuliner Semarang", "Kehidupan mahasiswa"],
+      media: "Terminal Mojok, 19 Januari 2022",
+      tautan: { label: "Baca di Terminal Mojok", url: "https://mojok.co/terminal/4-warung-makan-di-semarang-yang-buka-dini-hari/" }
+    },
+    {
+      kategori: "Opini",
+      jenis: "Online",
+      tahun: 2021,
+      judul: "Menelanjangi Food Estate Indonesia Perspektif Rezim Pangan",
+      ringkasan: "Membaca kebijakan food estate lewat teori poskolonial: kerawanan pangan dan marginalisasi masyarakat lokal.",
+      detail: [
+        "Wacana poskolonial berkembang sejak 1970-an, meski ada yang menganggap Konferensi Asia Afrika di Bandung tahun 1955 sebagai awalnya. Kolonialisme terkait dengan imperialisme dan bertujuan menguasai bangsa non-Barat. Konstruksi diskursif dan praksis material sama-sama berperan membangun ideologinya.",
+        "Teori poskolonial melampaui era kolonial dan mengungkap dampaknya hingga kini. Contoh nyata ideologi kolonial dalam praksis material di Indonesia adalah kebijakan rezim pangan seperti food estate, yang menyebabkan kerawanan pangan dan marginalisasi masyarakat lokal."
+      ],
+      topik: ["Rezim pangan", "Poskolonial"],
+      media: "The Columnist, 26 Oktober 2021",
+      tautan: { label: "Baca di The Columnist", url: "https://thecolumnist.id/artikel/menelanjangi-food-estate-indonesia-perspektif-rezim-pangan-1918" }
+    },
+    {
+      kategori: "Opini",
+      jenis: "Online",
+      tahun: 2021,
+      judul: "September Hitam yang Kian Kelam",
+      ringkasan: "HAM bukan isu musiman: kasusnya harus dikawal, diingat, dicatat, dan diperjuangkan hingga tuntas.",
+      detail: [
+        "September Hitam kian kelam. Bukan hanya negara yang tidak melaksanakan hak dan kewajibannya, sikap warga yang terlalu bersemangat merayakan dan menyemarakkan juga menabrak etika dan moral perjuangan.",
+        "HAM bukanlah isu musiman, apalagi untuk dirayakan lewat unggahan di media sosial. Ia adalah kasus yang harus dikawal, diingat, dicatat, dan diperjuangkan hingga tuntas."
+      ],
+      topik: ["HAM", "Opini publik"],
+      media: "Geotimes, 16 September 2021",
+      tautan: { label: "Baca di Geotimes", url: "https://geotimes.id/opini/september-hitam-yang-kian-kelam/" }
+    },
+    {
+      kategori: "Esai",
+      jenis: "Online",
+      tahun: 2021,
+      judul: "Meluruskan Salah Kaprah Soal Julukan Madiun Kota Gadis",
+      ringkasan: "Sebagai warga Madiun asli, meluruskan pemahaman julukan Kota Gadis yang sering disalahpahami dan dijadikan plesetan.",
+      detail: [
+        "Sebagai warga Madiun asli yang lahir dan hidup di sana, saya merasa wajib meluruskan pemahaman orang tentang julukan Madiun Kota Gadis. Julukan ini sering disalahpahami, bahkan dijadikan plesetan.",
+        "Tulisan ini meluruskannya sebelum salah paham itu mengakar, dan sebagai antisipasi bila di kemudian hari terjadi apa-apa."
+      ],
+      topik: ["Madiun", "Budaya lokal"],
+      media: "Terminal Mojok, 16 Agustus 2021",
+      tautan: { label: "Baca di Terminal Mojok", url: "https://mojok.co/terminal/meluruskan-salah-kaprah-soal-julukan-madiun-kota-gadis/" }
+    },
+    {
+      kategori: "Esai",
+      jenis: "Online",
+      tahun: 2021,
+      judul: "Senjakala Ruang Publik di Tengah Polemik",
+      ringkasan: "Ruang publik terancam oleh iklan dan kampanye politik; gagasan Habermas dan post-sekularisme dibaca ulang.",
+      detail: [
+        "Perubahan zaman mengancam wilayah kehidupan sebagai tempat berkumpulnya warga. Pikiran yang dulu dipertukarkan di ruang publik kini digantikan oleh iklan dan kampanye politik, dan masyarakat tidak lagi bebas dari penghakiman.",
+        "Perubahan ini tidak bisa dicegah, tetapi kita bisa belajar dari masa lalu. Dalam konteks ini, gagasan Ruang Publik Jurgen Habermas dan kaitannya dengan post-sekularisme menjadi relevan."
+      ],
+      topik: ["Ruang publik", "Habermas"],
+      media: "Geotimes, 22 Mei 2021",
+      tautan: { label: "Baca di Geotimes", url: "https://geotimes.id/opini/senjakala-ruang-publik-di-tengah-polemik/" }
+    },
+    {
+      kategori: "Esai",
+      jenis: "Online",
+      tahun: 2021,
+      judul: "Menuju Paradigma Sosiologi Hukum",
+      ringkasan: "Hukum positif dianggap sempit; pendekatan sosiologi hukum dengan analisis sosial dan budaya dinilai lebih relevan.",
+      detail: [
+        "Hukum positif dianggap sempit dan kurang relevan, sehingga diperlukan pendekatan sosiologi hukum yang melibatkan analisis sosial dan kultural. Hukum harus menyesuaikan diri dengan realitas sosial lewat penelitian dan observasi lapangan.",
+        "Hukum dipandang sebagai institusi sosial yang penting dalam kehidupan masyarakat, dengan negara yang berperan penting dan struktur politik yang terus berubah. Pendekatan sosiologi hukum menjadi gerakan studi hukum yang relevan."
+      ],
+      topik: ["Sosiologi hukum", "Studi hukum"],
+      media: "The Columnist, 24 April 2021",
+      tautan: { label: "Baca di The Columnist", url: "https://thecolumnist.id/artikel/menuju-paradigma-sosiologi-hukum-1622" }
+    },
+    {
+      kategori: "Opini",
+      jenis: "Online",
+      tahun: 2021,
+      judul: "Harlah PMII dan Revitalisasi Ideologi",
+      ringkasan: "Di usia 61 tahun, PMII dinilai masih relevan, dengan paradigma beragam yang bisa digabung menjadi formulasi baru.",
+      detail: [
+        "PMII berusia 61 tahun pada 17 April 2021 dan masih relevan di zaman sekarang. Walau kompleksitas masalah kehidupan bertambah, semangat pembebasan dan kesejahteraan yang dimiliki PMII tetap penting.",
+        "Paradigma yang beragam di PMII bisa digabungkan untuk menghasilkan formulasi baru. PMII dapat berperan menggiring opini publik dan menguasai media, serta menghadapi problem masyarakat Indonesia dan iklim politik yang sulit."
+      ],
+      topik: ["PMII", "Gerakan mahasiswa"],
+      media: "The Columnist, 19 April 2021",
+      tautan: { label: "Baca di The Columnist", url: "https://thecolumnist.id/artikel/harlah-pmii-dan-revitalisasi-ideologi-1615" }
+    },
+    {
+      kategori: "Esai",
+      jenis: "Online",
+      tahun: 2021,
+      judul: "Hilangnya Cita Rasa Pecel Madiun yang Tergerus Penjajah",
+      ringkasan: "Pecel Madiun “2.500-an” di kota-kota besar dinilai jauh dari ciri khas Madiun, dari rasa, sambal, sampai harga.",
+      detail: [
+        "Nasib pecel Madiun yang dijual di kota-kota besar seperti Jakarta, Surabaya, dan Semarang kerap bermasalah. Iming-iming “Pecel Khas Madiun 2.500-an” hanya clickbait dan jauh dari ciri khas Madiun, entah dari rasa, sambal, maupun harganya.",
+        "Harga segitu hanya untuk pecelnya saja; bila ditambah lauk, harganya ikut bertambah."
+      ],
+      topik: ["Kuliner", "Madiun"],
+      media: "Terminal Mojok, 26 Maret 2021",
+      tautan: { label: "Baca di Terminal Mojok", url: "https://mojok.co/terminal/hilangnya-cita-rasa-pecel-madiun-yang-tergerus-penjajah/" }
+    },
+    {
+      kategori: "Opini",
+      jenis: "Online",
+      tahun: 2021,
+      judul: "Andaikan Saja Mbak You Adalah Presiden Indonesia",
+      ringkasan: "Indonesia sering digegerkan ramalan; bagaimana jika Mbak You, sang peramal, menjadi presiden?",
+      detail: [
+        "Indonesia seringkali digegerkan oleh ramalan, seperti ramalan seorang ibu paruh baya yang sebelumnya meramal akan ada sesuatu yang terjadi di Indonesia, dan ternyata benar. Dialah Mbak You.",
+        "Tulisan ini mengandaikan: bagaimana kalau ibu paruh baya ini menjadi presiden?"
+      ],
+      topik: ["Politik", "Mbak You"],
+      media: "Terminal Mojok, 23 Februari 2021",
+      tautan: { label: "Baca di Terminal Mojok", url: "https://mojok.co/terminal/andaikan-saja-mbak-you-adalah-presiden-indonesia/" }
+    },
+    {
+      kategori: "Esai",
+      jenis: "Online",
+      tahun: 2021,
+      judul: "Culture Shock yang Bakal Dihadapi Santri Saat Jadi Alumni",
+      ringkasan: "Alumni pesantren di Jawa Timur melihat kehidupan luar yang jauh dari kesan mashook dan menjadi culture shock.",
+      detail: [
+        "Sebagai alumni salah satu pesantren di Jawa Timur, begitu keluar menjadi alumni, walau masih suka disebut santri, saya melihat kehidupan luar dengan campuran kaget dan tertegun.",
+        "Kehidupan luar yang jauh dari kesan mashook itu menjadi culture shock bagi seorang santri."
+      ],
+      topik: ["Pesantren", "Kehidupan santri"],
+      media: "Terminal Mojok, 7 Februari 2021",
+      tautan: { label: "Baca di Terminal Mojok", url: "https://mojok.co/terminal/culture-shock-yang-bakal-dihadapi-santri-saat-jadi-alumni/" }
+    },
+    {
+      kategori: "Esai",
+      jenis: "Online",
+      tahun: 2021,
+      judul: "Mempertanyakan Alasan Santri Suka Ngerokok dan Ngopi",
+      ringkasan: "“Join, Kang”: ucapan lumrah di kalangan santri yang sudah menjadi tradisi turun-temurun.",
+      detail: [
+        "“Join, Kang” adalah ucapan lumrah yang selalu dikatakan oleh, dari, dan untuk santri. Celetukan semacam itu sudah menjadi tradisi turun-temurun, tidak hanya antarsantri, kadang juga dari santri kepada kiai, seperti humor yang pernah diceritakan Gus Dur.",
+        "Tulisan ini mempertanyakan alasan di balik kebiasaan ngerokok dan ngopi di kalangan santri."
+      ],
+      topik: ["Pesantren", "Tradisi santri"],
+      media: "Terminal Mojok, 29 Januari 2021",
+      tautan: { label: "Baca di Terminal Mojok", url: "https://mojok.co/terminal/mempertanyakan-alasan-santri-suka-ngerokok-dan-ngopi/" }
+    },
+    {
+      kategori: "Opini",
+      jenis: "Online",
+      tahun: 2021,
+      judul: "Stereotip Menyebalkan Masyarakat Awam pada Lulusan Pondok Pesantren",
+      ringkasan: "Pertanyaan merendahkan seperti “lulusan pondok memangnya bisa apa?” dinilai tidak etis dan melukai perasaan santri.",
+      detail: [
+        "Saya sering mendengar langsung orang bilang, “Lulusan pondok pesantren jadi apa sih? Memangnya bisa apa? Palingan cuma jadi modin.” Pertanyaan seperti itu tidak etis.",
+        "Sama saja dengan merendahkan dan meremehkan harga diri anak pondok. Perasaan anak pondok yang mendengarnya tidak main-main: nyesek."
+      ],
+      topik: ["Pesantren", "Stereotip"],
+      media: "Terminal Mojok, 28 Januari 2021",
+      tautan: { label: "Baca di Terminal Mojok", url: "https://mojok.co/terminal/stereotip-menyebalkan-masyarakat-awam-pada-lulusan-pondok-pesantren/" }
+    },
+    {
+      kategori: "Esai",
+      jenis: "Online",
+      tahun: 2021,
+      judul: "Hal Nyentrik di Kota Semarang yang Bikin Orang Ogah Main ke Sana",
+      ringkasan: "Semarang tidak sama dengan gambaran kota besar lain yang macet, berasap, dan banjir.",
+      detail: [
+        "Kota-kota besar seperti Jakarta, Yogyakarta, dan Surabaya biasanya identik dengan lalu lintas macet, asap pabrik, banjir, tol yang berliku, dan sarangnya dewan yang sering nongol di televisi dan koran.",
+        "Tulisan ini menjelaskan bahwa Kota Semarang beserta isinya tidak seperti itu, dan hal-hal nyentrik apa yang justru bikin orang ogah main ke sana."
+      ],
+      topik: ["Semarang", "Catatan kota"],
+      media: "Terminal Mojok, 5 Januari 2021",
+      tautan: { label: "Baca di Terminal Mojok", url: "https://mojok.co/terminal/hal-nyentrik-di-kota-semarang-yang-bikin-orang-ogah-main-ke-sana/" }
+    },
+    {
+      kategori: "Esai",
+      jenis: "Online",
+      tahun: 2020,
+      judul: "Pengalaman Saya Saat Hendak Wawancara Polisi di Tengah Aksi",
+      ringkasan: "Pengalaman meliput dan mewawancarai polisi di tengah aksi, yang menawarkan penilaian berbeda terhadap profesi penegak hukum.",
+      detail: [
+        "Stigma negatif terhadap istilah “polisi” sudah mendarah daging, entah dari cerita yang beredar atau memang faktanya begitu. Tapi kita tidak bisa menilai secara subjektif bahwa setiap polisi berciri negatif, sebab kenyataannya masih banyak polisi baik.",
+        "Pengalaman saya hendak mewawancarai polisi di tengah aksi ini mungkin bisa menjadi sudut pandang lain dalam memandang profesi penegak hukum."
+      ],
+      topik: ["Jurnalistik", "Pengalaman lapangan"],
+      media: "Terminal Mojok, 12 Desember 2020",
+      tautan: { label: "Baca di Terminal Mojok", url: "https://mojok.co/terminal/pengalaman-saya-saat-hendak-wawancara-polisi-di-tengah-aksi/" }
+    }
+  ];
+
+  // Jalankan setelah data siap. Jangan hapus baris ini.
+  iniPortofolio({
+    tulisan: TULISAN,
+    seksi: SEKSI,
+    blok: BLOK_TULISAN,
+    peran: PERAN,
+    tentang: TENTANG,
+    riwayat: RIWAYAT,
+    foto: FOTO,
+    profil: TAUTAN_PROFIL
+  });
+</script>
+
+</body>
+</html>
