@@ -185,7 +185,7 @@
   .proyek-ringkas { margin: 0; max-width: 24ch; font-size: clamp(1.2rem, 2.2vw, 1.85rem); line-height: 1.35; font-weight: 500; letter-spacing: -.02em; }
 
   /* ---------- Semua tulisan ---------- */
-  .daftar-bagian { padding: 70px 0 40px; }
+  .daftar-bagian { padding-top: 70px; padding-bottom: 40px; }
   .daftar { margin: 0; padding: 0; list-style: none; border-bottom: 1px solid var(--line); }
   .daftar li { border-top: 1px solid var(--line); }
   .baris {
@@ -1153,6 +1153,15 @@
   /* ================= v21: perbaikan hasil tinjauan ================= */
   /* menu mobile */
   html, body { overflow-x: clip; }
+  /* v39: perbaikan HP: tab Artikel X tidak menimpa teks, Video punya tepi, logo SL dihapus */
+  @media (max-width: 900px) {
+    #pr-editorial .trek, .edit-isi.mode-x .trek { position: relative !important; top: auto !important; margin: 0 0 24px !important; height: auto; overflow: visible; z-index: 1; }
+    #pr-editorial .trek button { white-space: nowrap; line-height: 1.2; }
+    #pr-editorial .edit-tengah { position: relative; z-index: 0; margin-top: 0; padding-top: 4px; }
+  }
+  @media (max-width: 480px) { .nav .logo, .nav a.logo { display: none !important; } .nav .logo::before { content: none !important; } }
+@media (max-width: 520px) { #seksi-lain .s-aksi { flex-wrap: wrap; gap: 8px 12px; } #seksi-lain .s-aksi button { white-space: nowrap; font-size: .85rem; } #seksi-lain .s-buka { padding: 10px 16px; } }
+  #seksi-lain .daftar-bagian.wrap { box-sizing: border-box; padding-left: max(20px, 5vw); padding-right: max(20px, 5vw); }
   .nav-hubungi { display: none; }
   @media (max-width: 700px) { .nav-hubungi { display: inline-flex; align-items: center; margin-left: auto; margin-right: 14px; min-height: 44px; padding: 0 2px; font: 500 .95rem var(--sans); color: var(--fg); background: none; border: 0; border-bottom: 1px solid currentColor; border-radius: 0; cursor: pointer; } .nav-hubungi:focus-visible { outline: 2px solid #d97757; outline-offset: 3px; } }
   .nav-menu { display: none; }
@@ -1314,6 +1323,9 @@
   #seksi-lain { overflow-x: clip; }
   .s-hitung { color: var(--mut); }
   .s-buka::before { content: "\25B6\00a0\00a0"; font-size: .7em; }
+  /* v39: perbaikan tampilan HP */
+  @media (max-width: 900px) { .edit-isi.mode-x .trek { position: static; top: auto; margin-bottom: 18px; } }
+  @media (max-width: 560px) { .xgrid.geser { margin-right: -20px; padding-right: 20px; } .s-info { padding-right: 4px; } }
 </style>
 </head>
 
