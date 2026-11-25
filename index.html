@@ -1644,7 +1644,7 @@
         var st = buat("div", "gl-stage"), idx = buat("div", "gl-indeks"), pg = buat("div", "gl-panggung"), dn = buat("div", "gl-dunia");
         var pet = buat("p", "gl-petunjuk", SENTUH ? "Ketuk sampul untuk melihat, ketuk lagi untuk membuka" : "Arahkan kursor ke sampul. Klik untuk membuka.");
         var WARNA = ["kuning", "lilac", "lime", "pink", "mentari", "ungu", "hijau", "kobalt"];
-        var RAD = [1, .6, .44, .52, .36, .48, .4, .33, .46, .38, .34, .42], bola = [], aktif = 0, waktuPakai = 0;
+        var RAD = [1, .6, .44, .52, .36, .48, .4, .33, .46, .38, .34, .42], bola = [], aktif = 0, waktuPakai = 0, dilihat = -1;
         daftar.forEach(function (d, i) {
           var b = buat("button", "gl-bola"); b.type = "button";
           b.style.setProperty("--n", i); b.style.setProperty("--z", [0, 50, -40, 70, -60, 30, -30, 80][i % 8]);
@@ -1653,10 +1653,10 @@
           var lj = buat("span", "gl-lonjak"), gb = buat("span", "gl-gbr"), im = buat("img"); im.src = d.gambar; im.alt = ""; im.loading = "lazy";
           gb.appendChild(im); lj.appendChild(gb); b.appendChild(lj);
           b.addEventListener("pointerenter", function (e) { if (e.pointerType !== "touch") { waktuPakai = Date.now(); pilih(i); } });
-          b.addEventListener("focus", function () { pilih(i); });
+          b.addEventListener("focus", function () { if (!SENTUH) pilih(i); });
           b.addEventListener("click", function () {
             waktuPakai = Date.now(); b.classList.add("tekan"); setTimeout(function () { b.classList.remove("tekan"); }, 140);
-            if (SENTUH && aktif !== i) { pilih(i); return; } bukaKarya(d, null);
+            if (SENTUH && dilihat !== i) { dilihat = i; pilih(i); return; } bukaKarya(d, null);
           });
           dn.appendChild(b); bola.push({ el: b, d: d, r: RAD[i % RAD.length], ok: true, w: d.warna || WARNA[i % WARNA.length] });
         });
