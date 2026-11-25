@@ -11,7 +11,7 @@
 <meta property="og:title" content="Muhammad Lutfi N.S. — Media Officer, Public Relations, Journalist">
 <meta property="og:description" content="Media Officer di Masyarakat Ekonomi Syariah sejak Februari 2024: 416 publikasi di situs, ±182,8 rb tayangan Instagram, ±130 siniar Smart Syariah.">
 <meta property="og:url" content="https://alltruis.github.io/Portofolio-Lutfi/">
-<meta property="og:image" content="https://alltruis.github.io/Portofolio-Lutfi/gambar/og-lutfi.jpg">
+<meta property="og:image" content="https://alltruis.github.io/Portofolio-Lutfi/gambar/umum/og-lutfi.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Muhammad Lutfi N.S. dengan tiga angka capaian: 416 publikasi, ±182,8 rb tayangan Instagram, ±130 siniar.">
@@ -1468,6 +1468,8 @@
 <!-- ===================== LOGIKA HALAMAN =====================
      Tidak perlu diubah untuk menambah tulisan. -->
 <script>
+  function jalurGambar(n) { var f = /^(artikel|berita|press|smart|talk|quote|share)-/.test(n) ? "pr" : /^(promo|profil)-/.test(n) ? "rubrik" : /^(foto|og)-/.test(n) ? "umum" : "karya"; return "gambar/" + f + "/" + n + ".jpg"; }
+
   var PANAH_SVG = '<svg class="panah" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17M14 6l6 6-6 6"/></svg>';
   var IKON = {
     instagram: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>',
@@ -1525,7 +1527,7 @@
           ub.style.setProperty("--dur", (11 + rnd() * 9).toFixed(1) + "s");
           ub.style.setProperty("--tunda", (no++ * .06).toFixed(2) + "s");
           var im = buat("img"); im.alt = ""; im.decoding = "async"; im.draggable = false;
-          im.src = "gambar/" + t[0] + ".jpg"; im.addEventListener("error", function () { ub.remove(); });
+          im.src = jalurGambar(t[0]); im.addEventListener("error", function () { ub.remove(); });
           ub.appendChild(im); lp.appendChild(ub);
           ubin.push({ el: ub, im: im, lit: 0, target: 0 });
         });
@@ -1652,7 +1654,7 @@
           while (h.scrollWidth > h.clientWidth + 1 && fs > 16 && n < 40) { fs *= .94; h.style.fontSize = fs + "px"; n++; }
         }
         window.addEventListener("resize", function () { if (kj.textContent) muatJudul(kj); });
-        var PALET_CETAK = {"gambar/majalah-55.jpg": {"a": "#eed4b4", "b": "#ee9d67", "t": "#141413"}, "gambar/pop-culture.jpg": {"a": "#f3cab1", "b": "#7d8399", "t": "#141413"}, "gambar/buletin.jpg": {"a": "#9e9ea0", "b": "#868686", "t": "#141413"}, "gambar/liksa.jpg": {"a": "#717073", "b": "#172472", "t": "#faf9f5"}, "gambar/pantura-tenggelam.jpg": {"a": "#7ed0f2", "b": "#3b9ec4", "t": "#141413"}, "gambar/pasca-kolonialisme.jpg": {"a": "#83bec9", "b": "#bd685f", "t": "#141413"}, "gambar/intoleransi-jateng.jpg": {"a": "#b9bb84", "b": "#888740", "t": "#141413"}, "gambar/teror-makam.jpg": {"a": "#b33a29", "b": "#59150d", "t": "#faf9f5"}};
+        var PALET_CETAK = {"gambar/karya/majalah-55.jpg": {"a": "#eed4b4", "b": "#ee9d67", "t": "#141413"}, "gambar/karya/pop-culture.jpg": {"a": "#f3cab1", "b": "#7d8399", "t": "#141413"}, "gambar/karya/buletin.jpg": {"a": "#9e9ea0", "b": "#868686", "t": "#141413"}, "gambar/karya/liksa.jpg": {"a": "#717073", "b": "#172472", "t": "#faf9f5"}, "gambar/karya/pantura-tenggelam.jpg": {"a": "#7ed0f2", "b": "#3b9ec4", "t": "#141413"}, "gambar/karya/pasca-kolonialisme.jpg": {"a": "#83bec9", "b": "#bd685f", "t": "#141413"}, "gambar/karya/intoleransi-jateng.jpg": {"a": "#b9bb84", "b": "#888740", "t": "#141413"}, "gambar/karya/teror-makam.jpg": {"a": "#b33a29", "b": "#59150d", "t": "#faf9f5"}};
         function pilih(i) {
           if (i === aktif && g._ada) return; aktif = i; g._ada = true;
           var o = bola[i], d = o.d;
@@ -1775,7 +1777,7 @@
     function thumbVideo(id, judul) {
       var t = buat("span", "b-thumb");
       var img = buat("img"); img.alt = ""; img.loading = "lazy"; img.referrerPolicy = "no-referrer";
-      var lokal = { "oJ6z7XLyhog": "gambar/video-pantura-1.jpg", "0k8idRNfaYk": "gambar/video-pantura-2.jpg", "-uonEBNYmo0": "gambar/video-pantura-3.jpg" }[id];
+      var lokal = { "oJ6z7XLyhog": "gambar/karya/video-pantura-1.jpg", "0k8idRNfaYk": "gambar/karya/video-pantura-2.jpg", "-uonEBNYmo0": "gambar/karya/video-pantura-3.jpg" }[id];
       var jauh = "https://i.ytimg.com/vi/" + id + "/hqdefault.jpg";
       img.src = lokal || jauh;
       img.addEventListener("error", function () { if (lokal && img.src.indexOf("gambar/") > -1) { img.src = jauh; return; } img.remove(); });
@@ -1894,12 +1896,12 @@
           el.appendChild(rel);
         } else if (!REDUCE) {
           var THUMB_OPINI = {
-            "https://thecolumnist.id/artikel/menuju-pendidikan-erat-kehidupan-2053": "gambar/opini-pendidikan.jpg",
-            "https://thecolumnist.id/artikel/menelanjangi-food-estate-indonesia-perspektif-rezim-pangan-1918": "gambar/opini-food-estate.jpg",
-            "https://thecolumnist.id/artikel/harlah-pmii-dan-revitalisasi-ideologi-1615": "gambar/opini-harlah-pmii.jpg",
-            "https://mojok.co/terminal/andaikan-saja-mbak-you-adalah-presiden-indonesia/": "gambar/opini-mbak-you.jpg",
-            "https://mojok.co/terminal/stereotip-menyebalkan-masyarakat-awam-pada-lulusan-pondok-pesantren/": "gambar/opini-stereotip-pondok.jpg",
-            "https://geotimes.id/opini/september-hitam-yang-kian-kelam/": "gambar/opini-september-hitam.jpg"
+            "https://thecolumnist.id/artikel/menuju-pendidikan-erat-kehidupan-2053": "gambar/karya/opini-pendidikan.jpg",
+            "https://thecolumnist.id/artikel/menelanjangi-food-estate-indonesia-perspektif-rezim-pangan-1918": "gambar/karya/opini-food-estate.jpg",
+            "https://thecolumnist.id/artikel/harlah-pmii-dan-revitalisasi-ideologi-1615": "gambar/karya/opini-harlah-pmii.jpg",
+            "https://mojok.co/terminal/andaikan-saja-mbak-you-adalah-presiden-indonesia/": "gambar/karya/opini-mbak-you.jpg",
+            "https://mojok.co/terminal/stereotip-menyebalkan-masyarakat-awam-pada-lulusan-pondok-pesantren/": "gambar/karya/opini-stereotip-pondok.jpg",
+            "https://geotimes.id/opini/september-hitam-yang-kian-kelam/": "gambar/karya/opini-september-hitam.jpg"
           };
           var N2 = karya.length, tr = buat("div", "tumpuk"), pn = buat("div", "tumpuk-pentas"), nm = buat("div", "tumpuk-nomor"), ni = buat("span"), nb = buat("i");
           tr.style.setProperty("--n", N2); nm.appendChild(ni); nm.appendChild(nb); tr.setAttribute("role", "list");
@@ -2213,7 +2215,7 @@
      PERAN          : peran yang bergantian di bawah nama di hero.
      TENTANG        : paragraf bagian Tentang.
      RIWAYAT        : baris ringkas di samping bagian Tentang.
-     FOTO           : alamat foto, mis. "gambar/foto.jpg" (kosongkan bila tidak dipakai).
+     FOTO           : alamat foto, mis. "gambar/umum/foto-lutfi.jpg" (kosongkan bila tidak dipakai).
      TAUTAN_PROFIL  : LinkedIn dan surel (ikon: "linkedin" atau "surel").
 
      TULISAN: satu blok { ... } = satu karya.
@@ -2226,7 +2228,7 @@
        topik     : array tag topik
        media     : (opsional) tempat terbit dan tanggal
        tautan    : (opsional) { label: "Baca di ...", url: "https://..." }
-       gambar    : (opsional) alamat sampul, mis. "gambar/pop-culture.jpg"
+       gambar    : (opsional) alamat sampul, mis. "gambar/karya/pop-culture.jpg"
        Khusus jenis "Cetak" (kartu bertumpuk):
        judulPendek : (opsional) judul singkat untuk kartu
        intisari    : (opsional) satu kalimat inti; tampil di kartu yang tanpa gambar
@@ -2264,7 +2266,7 @@
     { label: "sertifikasi", nilai: "Harian Kompas dan Tempo Institute" }
   ];
 
-  var FOTO = "gambar/foto-lutfi.jpg";
+  var FOTO = "gambar/umum/foto-lutfi.jpg";
 
   var TAUTAN_PROFIL = [
     { label: "LinkedIn", url: "https://www.linkedin.com/in/lutfi13/", ikon: "linkedin" },
@@ -2283,7 +2285,7 @@
       judul: "Majalah Edisi 55: Grusak-Grusuk Komersialisasi Perguruan Tinggi",
       intisari: "UKT naik, kuliah putus, dan kebijakan Wajib Ma’had yang timpang.",
       warna: "hijau",
-      gambar: "gambar/majalah-55.jpg",
+      gambar: "gambar/karya/majalah-55.jpg",
       judulPendek: "Komersialisasi Perguruan Tinggi",
       format: "Majalah",
       ringkasan: "Majalah LPM Justisia yang menelusuri aktivitas BLU dan biaya pendidikan, ketimpangan kebijakan Wajib Ma’had, hingga mahasiswa yang gagal kuliah karena UKT.",
@@ -2304,7 +2306,7 @@
       warna: "lime",
       judulPendek: "Pop Culture",
       format: "Jurnal",
-      gambar: "gambar/pop-culture.jpg",
+      gambar: "gambar/karya/pop-culture.jpg",
       ringkasan: "Jurnal LPM Justisia tentang budaya populer yang melintasi batas geografis dan sosial: fast fashion, perilaku konsumtif, dan identitas Generasi Z.",
       detail: [
         "Jurnal ini memaparkan dinamika penyebaran budaya populer lintas batas lewat beberapa perspektif: pengaruhnya pada isu lingkungan dalam fenomena fast fashion, hegemoninya terhadap perilaku konsumtif, ambivalensinya dalam kehidupan masyarakat, hingga pembentukan identitas sosial Generasi Z.",
@@ -2335,7 +2337,7 @@
       judul: "Moderasi Beragama",
       intisari: "Toleransi dalam banyak makna.",
       warna: "pink",
-      gambar: "gambar/buletin.jpg",
+      gambar: "gambar/karya/buletin.jpg",
       judulPendek: "Moderasi Beragama",
       format: "Buletin",
       ringkasan: "Buletin LPM Justisia yang membandingkan ragam pandangan tentang toleransi beragama.",
@@ -2354,7 +2356,7 @@
       judul: "Liksa Edisi 32: Aku Mahasiswa",
       intisari: "Cerpen, puisi, dan kritik sastra sebagai penghibur.",
       warna: "mentari",
-      gambar: "gambar/liksa.jpg",
+      gambar: "gambar/karya/liksa.jpg",
       judulPendek: "Aku Mahasiswa",
       format: "Produk sastra",
       ringkasan: "Produk sastra LPM Justisia yang hadir sebagai penghibur lewat cerita pendek, puisi, prosa, dan kritik sastra.",
@@ -2375,7 +2377,7 @@
       warna: "krem",
       judulPendek: "Pantura Tenggelam",
       format: "Majalah",
-      gambar: "gambar/pantura-tenggelam.jpg",
+      gambar: "gambar/karya/pantura-tenggelam.jpg",
       ringkasan: "Majalah LPM Justisia tentang rob di pesisir pantura, ditelaah lewat studi ekologi dan sejarah perjuangan warga terdampak.",
       detail: [
         "Pengurus LPM Justisia periode 2022-2023 menerbitkan Majalah Edisi 54 dengan tema bencana rob yang terus melanda pesisir pantura. Rob tidak dilihat semata sebagai faktor alam: liputannya menelaah secara komprehensif lewat studi ekologi, termasuk mencatat sejarah dan perjuangan warga menghadapi bencana menahun itu.",
@@ -2420,7 +2422,7 @@
       judul: "Jurnal Edisi 54: Pasca Kolonialisme",
       intisari: "Kolonialisme yang belum selesai.",
       warna: "ungu",
-      gambar: "gambar/pasca-kolonialisme.jpg",
+      gambar: "gambar/karya/pasca-kolonialisme.jpg",
       judulPendek: "Pasca Kolonialisme",
       format: "Jurnal",
       ringkasan: "Jurnal LPM Justisia tentang kolonialisme yang belum sepenuhnya selesai dan hegemoni Negara Dunia Pertama atas Dunia Ketiga.",
@@ -2442,7 +2444,7 @@
       warna: "prem",
       judulPendek: "Intoleransi dan Situasi Keberagamaan",
       format: "Laporan riset",
-      gambar: "gambar/intoleransi-jateng.jpg",
+      gambar: "gambar/karya/intoleransi-jateng.jpg",
       ringkasan: "Laporan kebebasan beragama dan berkeyakinan di Jawa Tengah; Lutfi menulis kondisi Penghayat Kepercayaan, termasuk kasus krematorium umat Hindu di Semarang.",
       detail: [
         "Laporan tahunan 2022 yang melaporkan kondisi 2021 ini menemukan kasus penolakan pendirian rumah ibadah, kebijakan walikota tentang pendirian rumah ibadah, diskriminasi layanan pendidikan bagi penganut Kepercayaan, teror makam, serta penangkapan terduga teroris di Jawa Tengah.",
@@ -2460,7 +2462,7 @@
       intisari: "Teror makam dan intoleransi laten di lembaga pendidikan.",
       peran: "Periset dan Penulis",
       warna: "kobalt",
-      gambar: "gambar/teror-makam.jpg",
+      gambar: "gambar/karya/teror-makam.jpg",
       judulPendek: "Teror Makam",
       format: "Laporan riset",
       ringkasan: "Laporan kebebasan beragama dan berkeyakinan di Jawa Tengah; Lutfi menulis kasus penolakan pemakaman Penghayat Kepercayaan di Kendal.",
@@ -2806,23 +2808,23 @@
   ];
 
   var PR_SHARE = [
-    { j: "SGIE 2025/2026 Indonesia Turun ke Peringkat 4", img: "gambar/share-sgie.jpg", url: IG + "p/Daz6OhbAWuC/" },
-    { j: "3 Tipe Gen Z Mana yang Paling Kamu Banget?", img: "gambar/share-gen-z.jpg", url: IG + "p/DRzFJrRgeXV/" },
-    { j: "Akankah BSN Mengubah Peta Perbankan Syariah Nasional?", img: "gambar/share-bsn.jpg", url: IG + "p/DQq9SPDAfPO/" },
-    { j: "Blueprint Penguatan Keuangan Syariah Tahun 2026", img: "gambar/share-blueprint.jpg", url: IG + "p/DYjtwJ2AR3R/" },
-    { j: "Arah Kebijakan Ekonomi Syariah dalam RPJMN 2025-2029", img: "gambar/share-rpjmn.jpg", url: IG + "p/DHp6swKB1cs/" }
+    { j: "SGIE 2025/2026 Indonesia Turun ke Peringkat 4", img: "gambar/pr/share-sgie.jpg", url: IG + "p/Daz6OhbAWuC/" },
+    { j: "3 Tipe Gen Z Mana yang Paling Kamu Banget?", img: "gambar/pr/share-gen-z.jpg", url: IG + "p/DRzFJrRgeXV/" },
+    { j: "Akankah BSN Mengubah Peta Perbankan Syariah Nasional?", img: "gambar/pr/share-bsn.jpg", url: IG + "p/DQq9SPDAfPO/" },
+    { j: "Blueprint Penguatan Keuangan Syariah Tahun 2026", img: "gambar/pr/share-blueprint.jpg", url: IG + "p/DYjtwJ2AR3R/" },
+    { j: "Arah Kebijakan Ekonomi Syariah dalam RPJMN 2025-2029", img: "gambar/pr/share-rpjmn.jpg", url: IG + "p/DHp6swKB1cs/" }
   ];
   var PR_PROMO = [
-    { j: "Rahasia di balik kulkas selalu penuh dan tagihan tetap aman", img: "gambar/promo-kulkas.jpg", url: IG + "p/DCjErmWhv6F/" },
-    { j: "Kejadian yang bikin galau selain ketinggalan flash sale", img: "gambar/promo-flash-sale.jpg", url: IG + "p/DA_HLT1Ty5O/" },
-    { j: "Penyebab umat Muslim lebih semangat hunting diskon belanja daripada mikirin biaya haji", img: "gambar/promo-biaya-haji.jpg", url: IG + "p/DAlGOb5TwbM/" },
-    { j: "Hal yang lebih ribet dari sekadar ngurusin bumbu masakan", img: "gambar/promo-bumbu.jpg", url: IG + "p/DBQyXDpzmI3/" },
-    { j: "Hal-hal yang bisa bikin cuan sambil menikmati kopi pagi", img: "gambar/promo-kopi-pagi.jpg", url: IG + "p/DA3UfDQTDmP/" }
+    { j: "Rahasia di balik kulkas selalu penuh dan tagihan tetap aman", img: "gambar/rubrik/promo-kulkas.jpg", url: IG + "p/DCjErmWhv6F/" },
+    { j: "Kejadian yang bikin galau selain ketinggalan flash sale", img: "gambar/rubrik/promo-flash-sale.jpg", url: IG + "p/DA_HLT1Ty5O/" },
+    { j: "Penyebab umat Muslim lebih semangat hunting diskon belanja daripada mikirin biaya haji", img: "gambar/rubrik/promo-biaya-haji.jpg", url: IG + "p/DAlGOb5TwbM/" },
+    { j: "Hal yang lebih ribet dari sekadar ngurusin bumbu masakan", img: "gambar/rubrik/promo-bumbu.jpg", url: IG + "p/DBQyXDpzmI3/" },
+    { j: "Hal-hal yang bisa bikin cuan sambil menikmati kopi pagi", img: "gambar/rubrik/promo-kopi-pagi.jpg", url: IG + "p/DA3UfDQTDmP/" }
   ];
   var PR_PROFIL = [
-    { j: "Dari Aksi, Jadi Legasi: Perjalanan Musa Rajekshah membangun Sumatera Utara", img: "gambar/profil-musa-rajekshah.jpg", url: IG + "p/Dcx_AY0Af8t/" },
-    { j: "Saat Insinyur Menggerakkan Hilirisasi: Kiprah Todotua Pasaribu", img: "gambar/profil-todotua-pasaribu.jpg", url: IG + "p/DfPHX1MAbG4/" },
-    { j: "Dakwah yang Menembus Kampus Mancanegara: Kiprah Ustaz Adi Hidayat", img: "gambar/profil-adi-hidayat.jpg", url: IG + "p/DfozlemAW1n/" }
+    { j: "Dari Aksi, Jadi Legasi: Perjalanan Musa Rajekshah membangun Sumatera Utara", img: "gambar/rubrik/profil-musa-rajekshah.jpg", url: IG + "p/Dcx_AY0Af8t/" },
+    { j: "Saat Insinyur Menggerakkan Hilirisasi: Kiprah Todotua Pasaribu", img: "gambar/rubrik/profil-todotua-pasaribu.jpg", url: IG + "p/DfPHX1MAbG4/" },
+    { j: "Dakwah yang Menembus Kampus Mancanegara: Kiprah Ustaz Adi Hidayat", img: "gambar/rubrik/profil-adi-hidayat.jpg", url: IG + "p/DfozlemAW1n/" }
   ];
 
   var PR_SMART = [
@@ -2846,7 +2848,7 @@
   /* Thumbnail disimpan lokal di gambar/; alamat aslinya jadi cadangan bila berkas lokal tidak ada */
   [[PR_PRESS, "press"], [PR_BERITA, "berita"], [PR_SMART, "smart"]].forEach(function (g) {
     g[0].forEach(function (d, i) {
-      var lokal = "gambar/" + g[1] + "-" + (i < 9 ? "0" : "") + (i + 1) + ".jpg";
+      var lokal = "gambar/pr/" + g[1] + "-" + (i < 9 ? "0" : "") + (i + 1) + ".jpg";
       ASAL[lokal] = d.img; d.alt = d.img; d.img = lokal;
     });
   });
@@ -2868,7 +2870,7 @@
     ["Keuangan syariah sudah 33 tahun hadir di Indonesia, tapi pangsa pasarnya masih 8,69%?", "DBNoR7EPvuS"],
     ["Cryptocurrency", "C8ZS8XSBgq2"],
     ["5 Ide Investasi Syariah", "C7q633LBs9M"]
-  ].map(function (a, i) { var n = (i < 9 ? "0" : "") + (i + 1); return { j: a[0], img: "gambar/talk-" + n + ".jpg", url: IG + "reel/" + a[1] + "/" }; });
+  ].map(function (a, i) { var n = (i < 9 ? "0" : "") + (i + 1); return { j: a[0], img: "gambar/pr/talk-" + n + ".jpg", url: IG + "reel/" + a[1] + "/" }; });
   PR_TALK[1].j = "Kenapa potensi wakaf Rp181 triliun per tahun masih belum optimal dimanfaatkan?";
 
   var PR_ARTIKEL = [
@@ -2887,14 +2889,14 @@
     ["Saatnya Generasi Muda Menjadi Aktor Utama Ekonomi Syariah", "2084928068246728988"],
     ["Arus Baru Ekonomi Syariah di Tengah Stagnasi dan Transisi Moneter", "2082369266636996772"],
     ["Proteksi Piutang Ekspor di Tengah Bayang-Bayang Geopolitik dan Dedolarisasi", "2072527697734230349"]
-  ].map(function (a, i) { return { j: a[0], img: "gambar/artikel-" + (i < 9 ? "0" : "") + (i + 1) + ".jpg", url: a[1].indexOf("article/") === 0 ? "https://x.com/mes_indonesia/" + a[1] : "https://x.com/mes_indonesia/status/" + a[1] }; });
+  ].map(function (a, i) { return { j: a[0], img: "gambar/pr/artikel-" + (i < 9 ? "0" : "") + (i + 1) + ".jpg", url: a[1].indexOf("article/") === 0 ? "https://x.com/mes_indonesia/" + a[1] : "https://x.com/mes_indonesia/status/" + a[1] }; });
 
   var PR_QUOTE = [
-    { n: "Ma'ruf Amin", r: "Tokoh Ekonomi Syariah", img: "gambar/quote-maruf-amin.jpg", url: IG + "p/DYhJkBNhhcb/" },
-    { n: "Rosan P. Roeslani", r: "Ketua Umum PP MES 2026-2031", img: "gambar/quote-rosan.jpg", url: IG + "p/DYHf0hojaNG/" },
-    { n: "Sapta Nirwandar", r: "Pakar Industri Halal MES", img: "gambar/quote-sapta.jpg", url: IG + "p/DOsN7C-gcVw/" },
-    { n: "Euis Amalia", r: "Pakar Ekonomi Syariah MES", img: "gambar/quote-euis-amalia.jpg", url: IG + "p/DOc0uPOgd-N/" },
-    { n: "Aries Mufti", r: "Wakil Ketua Dewan Pembina PP MES 2026-2031", img: "gambar/quote-aries-mufti.jpg", url: IG + "p/DcnyyHqhTbZ/" }
+    { n: "Ma'ruf Amin", r: "Tokoh Ekonomi Syariah", img: "gambar/pr/quote-maruf-amin.jpg", url: IG + "p/DYhJkBNhhcb/" },
+    { n: "Rosan P. Roeslani", r: "Ketua Umum PP MES 2026-2031", img: "gambar/pr/quote-rosan.jpg", url: IG + "p/DYHf0hojaNG/" },
+    { n: "Sapta Nirwandar", r: "Pakar Industri Halal MES", img: "gambar/pr/quote-sapta.jpg", url: IG + "p/DOsN7C-gcVw/" },
+    { n: "Euis Amalia", r: "Pakar Ekonomi Syariah MES", img: "gambar/pr/quote-euis-amalia.jpg", url: IG + "p/DOc0uPOgd-N/" },
+    { n: "Aries Mufti", r: "Wakil Ketua Dewan Pembina PP MES 2026-2031", img: "gambar/pr/quote-aries-mufti.jpg", url: IG + "p/DcnyyHqhTbZ/" }
   ];
 
   /* ---------- UTIL ---------- */
