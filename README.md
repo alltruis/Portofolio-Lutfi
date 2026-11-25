@@ -8,7 +8,7 @@ Portofolio Muhammad Lutfi Nanang Setiawan: Media Officer dan Public Relations di
 - **Public Relations:** press release dan berita, copywriting Instagram, siniar dan video Smart Syariah, serta Artikel X dan MES Quote, lengkap dengan angka capaian bersumber.
 - **Karya Online:** esai dan opini yang terbit di media daring.
 - **Karya Cetak:** majalah, jurnal, buletin, dan laporan riset, termasuk video dokumenter.
-- **Tentang dan kontak:** profil singkat, CV, dan tautan LinkedIn.
+- **Tentang dan kontak:** profil singkat, serta tautan LinkedIn dan media sosial.
 
 ## Struktur repositori
 - `index.html`: seluruh halaman (HTML, CSS, dan JavaScript dalam satu berkas).
