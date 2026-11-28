@@ -123,8 +123,9 @@
     border: 1px solid rgba(255, 255, 255, .35); border-radius: 50%;
   }
   @media (max-width: 1360px) { .penanda { display: none; } }
-  .hero-kalimat { margin: 18px 0 0; padding-left: 40px; max-width: 38ch; font-size: clamp(1.05rem, 1.6vw, 1.4rem); line-height: 1.5; color: var(--mut); position: relative; z-index: 2; }
-  @media (max-width: 700px) { .hero-kalimat { padding-left: 0; } }
+  .hero-kalimat { margin: 18px 0 0; padding-left: 40px; font-size: clamp(1.05rem, 1.6vw, 1.4rem); line-height: 1.5; color: var(--mut); position: relative; z-index: 2; }
+  .hero-kalimat .hk-baris { display: block; }
+  @media (max-width: 700px) { .hero-kalimat { padding-left: 0; } .hero-kalimat .hk-baris { display: inline; } }
 
   /* ---------- Karya unggulan (kartu bertumpuk) ---------- */
   .karya { padding-bottom: 40px; }
@@ -1359,7 +1360,7 @@
       <span class="peran" id="peran" aria-hidden="true"></span>
       <span class="sr-only" id="peran-teks">Media Officer, Public Relations, dan Journalist</span>
     </h1>
-    <p class="hero-kalimat">Menulis isu publik sejak di pers mahasiswa, kini mengelola komunikasi Masyarakat Ekonomi Syariah.</p>
+    <p class="hero-kalimat"><span class="hk-baris">Menulis isu publik sejak di pers mahasiswa,</span> <span class="hk-baris">kini mengelola komunikasi Masyarakat Ekonomi Syariah.</span></p>
     <div class="penanda" aria-hidden="true"></div>
   </div>
 </header>
