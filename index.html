@@ -123,6 +123,8 @@
     border: 1px solid rgba(255, 255, 255, .35); border-radius: 50%;
   }
   @media (max-width: 1360px) { .penanda { display: none; } }
+  .hero-kalimat { margin: 18px 0 0; padding-left: 40px; max-width: 38ch; font-size: clamp(1.05rem, 1.6vw, 1.4rem); line-height: 1.5; color: var(--mut); position: relative; z-index: 2; }
+  @media (max-width: 700px) { .hero-kalimat { padding-left: 0; } }
 
   /* ---------- Karya unggulan (kartu bertumpuk) ---------- */
   .karya { padding-bottom: 40px; }
@@ -1357,6 +1359,7 @@
       <span class="peran" id="peran" aria-hidden="true"></span>
       <span class="sr-only" id="peran-teks">Media Officer, Public Relations, dan Journalist</span>
     </h1>
+    <p class="hero-kalimat">Menulis isu publik sejak di pers mahasiswa, kini mengelola komunikasi Masyarakat Ekonomi Syariah.</p>
     <div class="penanda" aria-hidden="true"></div>
   </div>
 </header>
@@ -1482,7 +1485,18 @@
 <script>
   function jalurGambar(n) { var f = /^(artikel|berita|press|smart|talk|quote|share)-/.test(n) ? "pr" : /^(promo|profil)-/.test(n) ? "rubrik" : /^(foto|og)-/.test(n) ? "umum" : "karya"; return "gambar/" + f + "/" + n + ".jpg"; }
 
-  var PANAH_SVG = '<svg class="panah" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17M14 6l6 6-6 6"/></svg>';
+  /* Label jenis karya: Majalah, Jurnal, dan Laporan Tahunan ELSA ditandai sebagai riset. */
+  function labelFormat(d) {
+    var f = d.format || d.kategori;
+    return (f === "Majalah" || f === "Jurnal") ? f + " · Riset" : f;
+  }
+  function labelKategori(d) {
+    if (d.format === "Majalah" || d.format === "Jurnal" || d.format === "Laporan riset") return "Riset";
+    if (d.jenis === "Video") return "Dokumenter";
+    return d.format || d.kategori;
+  }
+
+  var PANAH_SVG ='<svg class="panah" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17M14 6l6 6-6 6"/></svg>';
   var IKON = {
     instagram: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>',
     x: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>',
@@ -1679,7 +1693,7 @@
           kbg.src = d.gambar; fim.src = d.gambar; fim.alt = "Sampul " + d.judul; fig.style.setProperty("--m", [-3, 2, -2, 3][i % 4] + "deg");
           kth.textContent = d.tahun; kj.textContent = d.judulPendek || d.judul; kr.textContent = d.intisari || d.ringkasan || "";
           muatJudul(kj);
-          meta.innerHTML = ""; meta.appendChild(buat("span", "", String(d.tahun))); meta.appendChild(buat("span", "", d.format || d.kategori));
+          meta.innerHTML = ""; meta.appendChild(buat("span", "", String(d.tahun))); meta.appendChild(buat("span", "", labelFormat(d)));
           var pm = (d.detail || []).join(" ").match(/Sebagai ([^,]+),/); if (d.peran) meta.appendChild(buat("span", "", "Peran: " + d.peran)); else if (pm) meta.appendChild(buat("span", "", "Peran: " + pm[1].charAt(0).toUpperCase() + pm[1].slice(1)));
           buka.setAttribute("aria-label", "Buka: " + d.judul);
           isi.classList.remove("ganti"); void isi.offsetWidth; if (!HEMAT) isi.classList.add("ganti");
@@ -1743,7 +1757,7 @@
 
         var meta = buat("div", "proyek-meta");
         meta.appendChild(buat("span", "", String(d.tahun)));
-        meta.appendChild(buat("span", "", d.format || d.kategori));
+        meta.appendChild(buat("span", "", labelFormat(d)));
         var pm = (d.detail || []).join(" ").match(/Sebagai ([^,]+),/);
         if (d.peran) meta.appendChild(buat("span", "proyek-peran", "Peran: " + d.peran)); else if (pm) meta.appendChild(buat("span", "proyek-peran", "Peran: " + pm[1].charAt(0).toUpperCase() + pm[1].slice(1)));
 
@@ -2083,7 +2097,7 @@
         ["tahun", String(d.tahun)],
         ["terbit", d.media],
         ["jenis", d.jenis],
-        ["kategori", d.kategori],
+        ["kategori", labelKategori(d)],
         ["topik", (d.topik || []).join(", ")]
       ]);
 
@@ -2331,12 +2345,13 @@
     {
       kategori: "Riset",
       jenis: "Video",
+      peran: "Produser",
       tahun: 2023,
       judul: "Ketika Mangkang Menjadi Mangkok",
       ringkasan: "Video dokumenter tentang amblesan tanah di Kawasan 3M Semarang dan warga yang harus mengurug serta meninggikan rumah dengan biaya besar.",
       detail: [
         "Kawasan 3M, yaitu Kelurahan Mangkang Wetan, Mangunharjo, dan Mangkang Kulon di Kota Semarang, menjadi sorotan karena risiko amblesan tanah yang meningkat. Sebagian pihak menganggapnya kecil, tetapi warga setempat harus mengurug dan meninggikan rumah dengan biaya tidak sedikit. Dokumenter ini merekam masalah itu dan kisah perjuangan serta kerentanan warga selama satu dekade terakhir.",
-        "Sebagai Pemimpin Umum, Lutfi mengontrol kinerja Redaksi Videografi dalam memproduksi dokumenter ini, menjadi supervisor untuk isu yang diangkat, dan ikut memilih footage yang sesuai dengan koridor jurnalistik."
+        "Sebagai Pemimpin Umum sekaligus produser, Lutfi mengontrol kinerja Redaksi Videografi dalam memproduksi dokumenter ini, menjadi supervisor untuk isu yang diangkat, dan ikut memilih footage yang sesuai dengan koridor jurnalistik."
       ],
       topik: ["Amblesan tanah", "Video dokumenter"],
       media: "LPM Justisia, November sampai Desember 2023",
@@ -2402,12 +2417,13 @@
     {
       kategori: "Riset",
       jenis: "Video",
+      peran: "Produser",
       tahun: 2023,
       judul: "Pantura Tenggelam: Tanah yang Hilang (Chapter Semarang)",
       ringkasan: "Dokumenter tentang rob dan abrasi di Tambaklorok, Tambakrejo, dan Mangkang Wetan, serta harapan warga pesisir Semarang.",
       detail: [
         "Redaksi Videografi LPM Justisia melanjutkan liputan features dari Demak ke Semarang. Video ini mengeksplorasi rob dan abrasi di Tambaklorok, Tambakrejo, dan Mangkang Wetan: tantangan dan harapan warga pesisir yang menghadapi kenaikan permukaan laut, perubahan iklim, dan pembangunan berlebihan. Ia menelusuri aspek geologis dan ekologis, juga dampak sosial dan ekonomi bagi warga.",
-        "Sebagai Pemimpin Umum, Lutfi mengontrol kinerja Redaksi Videografi, menjadi supervisor untuk isu yang diangkat, dan ikut memilih footage yang sesuai dengan koridor jurnalistik."
+        "Sebagai Pemimpin Umum sekaligus produser, Lutfi mengontrol kinerja Redaksi Videografi, menjadi supervisor untuk isu yang diangkat, dan ikut memilih footage yang sesuai dengan koridor jurnalistik."
       ],
       topik: ["Rob dan abrasi", "Video dokumenter"],
       media: "LPM Justisia, Juni sampai Juli 2023",
@@ -2416,12 +2432,13 @@
     {
       kategori: "Riset",
       jenis: "Video",
+      peran: "Produser",
       tahun: 2023,
       judul: "Pantura Tenggelam: Tanah yang Hilang (Chapter Demak)",
       ringkasan: "Dokumenter tentang tenggelamnya pesisir utara Jawa akibat rob, lewat wawancara dengan warga Timbulsloko, Demak, dan narasumber lain.",
       detail: [
         "Video ini menyoroti tenggelamnya pesisir utara Jawa akibat rob masif, yang disebabkan kurangnya perhatian dan keseriusan pemerintah mengelola wilayah pesisir. Lewat wawancara dengan berbagai narasumber, termasuk warga Timbulsloko, Demak, dokumenter menggambarkan dampaknya: sulitnya akses jalan, mahalnya renovasi rumah, hilangnya tempat bermain anak, terganggunya air bersih, dan tidak pastinya pendapatan dari perikanan.",
-        "Sebagai Pemimpin Umum, Lutfi mengontrol kinerja Redaksi Videografi, menjadi supervisor untuk isu yang diangkat, dan ikut memilih footage yang sesuai dengan koridor jurnalistik."
+        "Sebagai Pemimpin Umum sekaligus produser, Lutfi mengontrol kinerja Redaksi Videografi, menjadi supervisor untuk isu yang diangkat, dan ikut memilih footage yang sesuai dengan koridor jurnalistik."
       ],
       topik: ["Rob pesisir", "Video dokumenter"],
       media: "LPM Justisia, Mei sampai Juni 2023",
@@ -3389,7 +3406,7 @@
     });
   }
   function grup(id) { return document.getElementById(id); }
-  var GA = "Google Analytics 4 MES, 1 Jan 2024–22 Nov 2026";
+  var GA = "Google Analytics 4 MES, sejak Januari 2024 (data per 22 Nov 2026)";
   var IG = "Meta Business Suite @mes.indonesia, sejak 2 Jul 2024";
 
   kartu(grup("pr-media"), [
